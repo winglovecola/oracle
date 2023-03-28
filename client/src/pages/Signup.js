@@ -36,16 +36,22 @@ function Signup(props) {
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit} className="px-8 pt-6 pb-8">
-        <div className="flex space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="firstName">
+            First Name:
+          </label>
           <input
-            placeholder="First"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             name="firstName"
-            type="firstName"
             id="firstName"
+            type="text"
+            placeholder="First Name"
             onChange={handleChange}
           />
         </div>
+
         <div className="flex space-between my-2">
           <label htmlFor="lastName">Last Name:</label>
           <input

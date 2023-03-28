@@ -36,7 +36,7 @@ function Nav() {
     <header className="flex px-1">
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag"></span>
+          {/* <span role="img" aria-label="Book Of Fortune"></span> */}
           Book of Fortune
         </Link>
       </h1>
