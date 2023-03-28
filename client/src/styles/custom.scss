@@ -1,3 +1,16 @@
+//Naviation Bar
+#nav-menu {
+  ul {
+    li {
+      padding: 12px;
+      &:hover {
+        font-weight: bolder;
+        background-color: #4a044e;
+      }
+    }
+  }
+}
+
 .bg-tarot {
   // background: url('/site/tarot-bg.jpg') no-repeat center center fixed;
 }

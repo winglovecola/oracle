@@ -6,7 +6,10 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex">
+        <ul className="flex mx-3">
+          <li className="mx-1">
+            <Link to="/orderHistory">Shuffle</Link>
+          </li>
           <li className="mx-1">
             <Link to="/orderHistory">Order History</Link>
           </li>
@@ -34,18 +37,22 @@ function Nav() {
 
   return (
     <header className="flex justify-between px-1">
-      <h1>
+      <h1 aria-label="Book of Fortune Logo">
         <Link to="/">
           <img
             className="max-w-full"
             src="/src/img/site/book-of-fortune.svg"
             alt="Book of Fortune Logo"
           />
-          Book of Fortune
         </Link>
+        {/* <span aria-readonly="true"> Book of Fortune</span> */}
       </h1>
 
-      <nav>{showNavigation()}</nav>
+      <nav
+        id="nav-menu"
+        className="bg-purple-900 flex items-center justify-center">
+        {showNavigation()}
+      </nav>
     </header>
   );
 }
