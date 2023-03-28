@@ -36,8 +36,8 @@ function Nav() {
   }
 
   return (
-    <header className="flex justify-between px-1">
-      <h1 aria-label="Book of Fortune Logo">
+    <header className="flex flex-col md:flex-row justify-between px-1">
+      <h1 className="mb-5 md:mb-0" aria-label="Book of Fortune Logo">
         <Link to="/">
           <img
             className="max-w-full"
