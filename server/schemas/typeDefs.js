@@ -30,6 +30,19 @@ const typeDefs = gql`
     orders: [Order]
   }
 
+  type Tarot {
+    _id: ID
+    type: String
+    name: String
+    nameShort: String
+    value: String
+    valueInt: Int
+    suit: String
+    meaningUp: String
+    meaningRev: String
+    desc: String
+  }
+
   type Checkout {
     session: ID
   }

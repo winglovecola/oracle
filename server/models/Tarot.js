@@ -33,11 +33,6 @@ const tarotSchema = new Schema({
     required: true,
     trim: true
   },
-  type: {
-    type: String,
-    required: true,
-    trim: true
-  },
   meaningUp: {
     type: String,
     required: true,
