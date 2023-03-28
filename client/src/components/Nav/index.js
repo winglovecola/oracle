@@ -34,15 +34,10 @@ function Nav() {
 
   return (
     <header className="flex-row px-1">
-      <h1 className="text-3xl font-bold underline text-red-500 bg-green">
-        Hello world!
-      </h1>
       <h1>
         <Link to="/">
-          <span role="img" aria-label="shopping bag">
-            🛍️
-          </span>
-          -Shop-Shop
+          <span role="img" aria-label="shopping bag"></span>
+          Book of Fortune
         </Link>
       </h1>
 
