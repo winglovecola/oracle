@@ -31,11 +31,13 @@ function Signup(props) {
   };
 
   return (
-    <div className="container my-1">
+    <div className="w-full max-w-xs bg-white text-black">
       <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form
+        onSubmit={handleFormSubmit}
+        className="g-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="flex space-between my-2">
           <label htmlFor="firstName">First Name:</label>
           <input
