@@ -1,5 +1,6 @@
 import React from 'react';
 import Auth from '../../utils/auth';
+import Cart from '../Cart';
 import { Link } from 'react-router-dom';
 
 function Nav() {
@@ -18,6 +19,9 @@ function Nav() {
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
+          </li>
+          <li className="mx-1">
+            <Cart />
           </li>
         </ul>
       );
