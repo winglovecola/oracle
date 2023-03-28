@@ -31,13 +31,11 @@ function Signup(props) {
   };
 
   return (
-    <div className="w-full max-w-xs bg-white text-black">
+    <div className="w-full max-w-xs  bg-white shadow-md rounded  text-black">
       <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
-      <form
-        onSubmit={handleFormSubmit}
-        className="g-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit={handleFormSubmit} className="px-8 pt-6 pb-8">
         <div className="flex space-between my-2">
           <label htmlFor="firstName">First Name:</label>
           <input
@@ -79,7 +77,11 @@ function Signup(props) {
           />
         </div>
         <div className="flex flex-end">
-          <button type="submit">Submit</button>
+          <button
+            className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
