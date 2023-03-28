@@ -33,10 +33,11 @@ function Nav() {
   }
 
   return (
-    <header className="flex px-1">
+    <header className="flex justify-between px-1">
       <h1>
         <Link to="/">
           <img
+            className="max-w-full"
             src="/src/img/site/book-of-fortune.svg"
             alt="Book of Fortune Logo"
           />
