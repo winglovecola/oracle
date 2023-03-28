@@ -1,6 +1,7 @@
 //Naviation Bar
 #nav-menu {
   ul {
+    display: flex;
     li {
       padding: 12px;
       &:hover {
