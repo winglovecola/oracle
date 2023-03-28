@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+//Add Animate CSS
+@import 'animate.css';
+
 /* Add sass files */
 @import './styles/custom.scss';
 
