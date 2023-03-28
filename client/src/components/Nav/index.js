@@ -36,7 +36,10 @@ function Nav() {
     <header className="flex px-1">
       <h1>
         <Link to="/">
-          {/* <span role="img" aria-label="Book Of Fortune"></span> */}
+          <img
+            src="/src/img/site/book-of-fortune.svg"
+            alt="Book of Fortune Logo"
+          />
           Book of Fortune
         </Link>
       </h1>
