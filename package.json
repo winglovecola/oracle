@@ -1,7 +1,8 @@
 {
-  "name": "mern-shopping",
+  "name": "book-of-fortune",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/winglovecola/book-of-fortune",
   "main": "server/server.js",
   "scripts": {
     "start": "node server --ignore client",
