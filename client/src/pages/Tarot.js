@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT } from '../utils/queries';
@@ -13,6 +13,10 @@ const cards = [
 
 const Tarot = () => {
   // const [state, dispatch] = useStoreContext();
+  const [card1, setCard1] = useState('');
+  const [card2, setCard2] = useState('');
+  const [card3, setCard3] = useState('');
+
   const { data } = useQuery(QUERY_TAROTS_NAMESHORT);
   // const cardNameShort = getCards();
   console.log();
@@ -25,10 +29,11 @@ const Tarot = () => {
     // if the number is positive, it will move the item to the right, if it is negative, it will move the item to the left
     let shuffled = cards.sort(() => 0.5 - Math.random());
     const selectedNum = shuffled.slice(0, numOfitems);
+    // setCard1(selectedNum[0]);
 
-    selectedNum.forEach((n) => {
-      console.log(data.tarots[n]);
-    });
+    setCard1(data.tarots[selectedNum[0]].nameShort);
+    setCard2(data.tarots[selectedNum[1]].nameShort);
+    setCard3(data.tarots[selectedNum[2]].nameShort);
   }
 
   return (
@@ -39,21 +44,30 @@ const Tarot = () => {
         random
       </button>
       <section className=" flex grow justify-center items-center">
-        <img
-          className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
-          src="/src/img/site/tarot-card-cover.svg"
-          alt="Crystal Ball"
-        />
-        <img
-          className="max-w-full w-[200px] mx-4 animate__animated animate__fadeInRight"
-          src="/src/img/site/tarot-card-cover.svg"
-          alt="Crystal Ball"
-        />
-        <img
-          className="max-w-full w-[200px] animate__animated animate__fadeInUp"
-          src="/src/img/site/tarot-card-cover.svg"
-          alt="Crystal Ball"
-        />
+        <div>
+          <h6>{card1}</h6>
+          <img
+            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            src="/src/img/site/tarot-card-cover.svg"
+            alt="Crystal Ball"
+          />
+        </div>
+        <div className="card">
+          <h6>{card2}</h6>
+          <img
+            className="max-w-full w-[200px] mx-4 animate__animated animate__fadeInRight"
+            src="/src/img/site/tarot-card-cover.svg"
+            alt="Crystal Ball"
+          />
+        </div>
+        <div className="card">
+          <h6>{card3}</h6>
+          <img
+            className="max-w-full w-[200px] animate__animated animate__fadeInUp"
+            src="/src/img/site/tarot-card-cover.svg"
+            alt="Crystal Ball"
+          />
+        </div>
       </section>
     </main>
   );
