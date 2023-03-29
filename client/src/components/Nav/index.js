@@ -9,7 +9,7 @@ function Nav() {
       return (
         <ul className="">
           <li className="mx-1">
-            <Link to="/orderHistory">Shuffle</Link>
+            <Link to="/tarot">Tarot</Link>
           </li>
           <li className="mx-1">
             <Link to="/orderHistory">Order History</Link>
@@ -28,6 +28,9 @@ function Nav() {
     } else {
       return (
         <ul className="">
+          <li className="mx-1">
+            <Link to="/tarot">Tarot</Link>
+          </li>
           <li className="mx-1">
             <Link to="/signup">Signup</Link>
           </li>
