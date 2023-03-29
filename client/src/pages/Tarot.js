@@ -1,5 +1,9 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { QUERY_TAROTS_NAMESHORT } from '../utils/queries';
+
+// import { useStoreContext } from '../../utils/GlobalState';
 
 const cards = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
@@ -8,6 +12,12 @@ const cards = [
 ];
 
 const Tarot = () => {
+  // const [state, dispatch] = useStoreContext();
+  const { data } = useQuery(QUERY_TAROTS_NAMESHORT);
+  // const cardNameShort = getCards();
+  console.log();
+
+  // console.log(cardNameShort);
   function getRandomCard(cards) {
     let numOfitems = 3;
 
@@ -15,7 +25,10 @@ const Tarot = () => {
     // if the number is positive, it will move the item to the right, if it is negative, it will move the item to the left
     let shuffled = cards.sort(() => 0.5 - Math.random());
     const selectedNum = shuffled.slice(0, numOfitems);
-    console.log(selectedNum);
+
+    selectedNum.forEach((n) => {
+      console.log(data.tarots[n]);
+    });
   }
 
   return (

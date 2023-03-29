@@ -69,3 +69,11 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_TAROTS_NAMESHORT = gql`
+  {
+    tarots {
+      nameShort
+    }
+  }
+`;
