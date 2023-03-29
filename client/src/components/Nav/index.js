@@ -44,7 +44,7 @@ function Nav() {
       <h1 className="mb-5 md:mb-0" aria-label="Book of Fortune Logo">
         <Link to="/">
           <img
-            className="max-w-full"
+            className="max-w-full w-[400px]"
             src="/src/img/site/book-of-fortune.svg"
             alt="Book of Fortune Logo"
           />

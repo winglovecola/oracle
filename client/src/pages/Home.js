@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 // import ProductList from '../components/ProductList';
 // import CategoryMenu from '../components/CategoryMenu';
 // import Cart from "../components/Cart";
@@ -13,9 +15,11 @@ const Home = () => {
           src="/src/img/site/crystal-ball-drawing-fortune-telling.png"
           alt="Crystal Ball"
         />
-        <button className="bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-bold py-2 px-4 border-b-4 border-fuchsia-700 hover:border-fuchsia-500 rounded mt-6">
-          Look at my future
-        </button>
+        <Link to="/tarot">
+          <button className="bg-fuchsia-500 hover:bg-fuchsia-400 text-white font-bold py-2 px-4 border-b-4 border-fuchsia-700 hover:border-fuchsia-500 rounded mt-6">
+            Look at my future
+          </button>
+        </Link>
       </section>
       {/* <CategoryMenu /> */}
       {/* <ProductList /> */}

@@ -9,6 +9,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
+import Tarot from './pages/Tarot';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
@@ -44,7 +45,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div
-          className="flex flex-col  bg-slate-950 text-white p-6"
+          className="flex flex-col h-screen bg-slate-950 text-white p-6"
           style={{
             backgroundImage:
               'linear-gradient(180deg, rgba(83,4,125,1) 0%, rgba(0,0,0,0.6376925770308124) 100%),url(/src/img/site/marius-teodorescu-resize.jpg)',
@@ -53,6 +54,7 @@ function App() {
             <Nav />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/tarot" element={<Tarot />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/success" element={<Success />} />
