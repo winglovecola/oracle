@@ -43,6 +43,7 @@ const typeDefs = gql`
     desc: String
   }
 
+
   type Checkout {
     session: ID
   }
