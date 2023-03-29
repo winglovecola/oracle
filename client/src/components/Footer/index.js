@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className="bg-green-300">
-      <h6>TEST</h6>
+    <div className="bg-gray-300">
+      <h6>FOOTER</h6>
     </div>
   );
 }
