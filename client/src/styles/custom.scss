@@ -1,3 +1,33 @@
-.bg-green {
-  background-color: green;
+//Naviation Bar
+#nav-menu {
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      padding: 12px;
+      &:hover {
+        font-weight: bolder;
+        background-color: #4a044e;
+      }
+    }
+  }
+}
+
+//Main page
+.bg-tarot {
+  // background: url('/site/tarot-bg.jpg') no-repeat center center fixed;
+}
+
+// Rolate crystal ball
+.rolate-ball {
+  animation: rotation infinite 20s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
