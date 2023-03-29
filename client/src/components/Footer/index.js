@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
+
     <div className="mt-auto text-center">
       <h6>Project by Wing, Thomas & John</h6>
       <ul className="text-xs">

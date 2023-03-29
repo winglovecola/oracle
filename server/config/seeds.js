@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Product, Category } = require('../models');
+const { User, Product, Category, Tarot } = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -59,7 +59,9 @@ db.once('open', async () => {
     password: 'testtest'
   });
 
+  console.log('users seeded');
 
+  
   const tarot = await Tarot.insertMany([
       {
       "type": "major",
@@ -901,7 +903,7 @@ db.once('open', async () => {
   ]);
 
 
-  console.log('users seeded');
+  console.log('Tarot seeded');
 
   process.exit();
 });

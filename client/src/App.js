@@ -20,6 +20,9 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import ImageUpload from './pages/ImageUpload';
+import FortuneTelling from './pages/FortuneTelling';
+import ProphecyHistory from './pages/ProphecyHistory';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -61,6 +64,8 @@ function App() {
               <Route path="/orderHistory" element={<OrderHistory />} />
               <Route path="/products/:id" element={<Detail />} />
               <Route path="/iupload" element={<ImageUpload />} />
+              <Route path="/fortuneTelling" element={<FortuneTelling />} />
+              <Route path="/prophecyHistory" element={<ProphecyHistory />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
             <Footer />
