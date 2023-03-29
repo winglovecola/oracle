@@ -32,7 +32,13 @@ const resolvers = {
     tarots: async (parent, args) => {
       return await Tarot.find({ nameShort: { $in: args.nameShorts } });
     },
+    tarotRandom: async (parent, args) => {
+      // return wa
+      const allCards = await Tarot.find();
 
+      let shuffled = allCards.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, args.num);
+    },
     tarot: async (parent, args) => {
       return await Tarot.findOne({ nameShort: args.nameShort });
     },

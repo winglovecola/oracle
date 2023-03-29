@@ -62,6 +62,7 @@ const typeDefs = gql`
     tarotAll: [Tarot]
     tarots(nameShorts: [String!]): [Tarot]
     tarot(nameShort: String!): Tarot
+    tarotRandom(num: Int!): [Tarot]
   }
 
   type Mutation {

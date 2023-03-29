@@ -72,8 +72,23 @@ export const QUERY_USER = gql`
 
 export const QUERY_TAROTS_NAMESHORT = gql`
   {
-    tarots {
+    tarotAll {
       nameShort
+    }
+  }
+`;
+
+export const QUERY_RANDOM_CARDS = gql`
+  query TarotRandom($num: Int!) {
+    tarotRandom(num: $num) {
+      name
+      meaningUp
+      meaningRev
+      desc
+      nameShort
+      suit
+      type
+      value
     }
   }
 `;
