@@ -1,12 +1,16 @@
 import React from 'react';
 import Auth from '../../utils/auth';
+import Cart from '../Cart';
 import { Link } from 'react-router-dom';
 
 function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
+        <ul className="">
+          <li className="mx-1">
+            <Link to="/tarot">Tarot</Link>
+          </li>
           <li className="mx-1">
             <Link to="/orderHistory">Order History</Link>
           </li>
@@ -16,11 +20,17 @@ function Nav() {
               Logout
             </a>
           </li>
+          <li className="mx-1">
+            <Cart />
+          </li>
         </ul>
       );
     } else {
       return (
-        <ul className="flex-row">
+        <ul className="">
+          <li className="mx-1">
+            <Link to="/tarot">Tarot</Link>
+          </li>
           <li className="mx-1">
             <Link to="/signup">Signup</Link>
           </li>
@@ -33,20 +43,23 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1">
-      <h1 className="text-3xl font-bold underline text-red-500 bg-green">
-        Hello world!
-      </h1>
-      <h1>
+    <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
+      <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
         <Link to="/">
-          <span role="img" aria-label="shopping bag">
-            🛍️
-          </span>
-          -Shop-Shop
+          <img
+            className="max-w-full w-[250px]"
+            src="/src/img/site/oracle.svg"
+            alt="Oracle Logo"
+          />
         </Link>
+        {/* <span aria-readonly="true"> Oracle</span> */}
       </h1>
 
-      <nav>{showNavigation()}</nav>
+      <nav
+        id="nav-menu"
+        className="bg-purple-900 flex items-center justify-center">
+        {showNavigation()}
+      </nav>
     </header>
   );
 }

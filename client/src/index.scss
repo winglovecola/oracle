@@ -1,19 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+//Add Animate CSS
+@import 'animate.css';
+
 /* Add sass files */
 @import './styles/custom.scss';
 
-:root {
-  --primary: #232f3e;
-  --secondary: #f3a847;
-  --tertiary: #b12704;
-  --light: #fafafa;
-  --dark: #272f32;
-  --error: rgb(228, 46, 1);
-  --spacing-one: calc(1rem * 0.5);
-  --spacing-two: calc(1rem);
-}
+// :root {
+//   --primary: #232f3e;
+//   --secondary: #f3a847;
+//   --tertiary: #b12704;
+//   --light: #fafafa;
+//   --dark: #272f32;
+//   --error: rgb(228, 46, 1);
+//   --spacing-one: calc(1rem * 0.5);
+//   --spacing-two: calc(1rem);
+// }
 
 * {
   box-sizing: border-box;
@@ -27,7 +31,7 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Oxygen', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
@@ -40,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Oxygen', sans-serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
@@ -147,7 +151,7 @@ p {
 //   margin-right: auto;
 // }
 
-// .flex-row {
+// .flex {
 //   display: flex;
 //   flex-wrap: wrap;
 // }
