@@ -10,13 +10,13 @@ const Tarot = () => {
           src="/src/img/site/tarot-card-cover.svg"
           alt="Crystal Ball"
         />
-        {/* <img
-          className="max-w-full w-[200px] mx-4"
+        <img
+          className="max-w-full w-[200px] mx-4 animate__animated animate__fadeInRight"
           src="/src/img/site/tarot-card-cover.svg"
           alt="Crystal Ball"
-        /> */}
-        <svg
-          className="max-w-full w-[200px] mx-4"
+        />
+        {/* <svg
+          className="max-w-full w-[200px] mx-4 "
           width="584"
           height="818"
           viewBox="0 0 584 818"
@@ -2655,7 +2655,7 @@ const Tarot = () => {
             stroke-linecap="round"
             stroke-linejoin="round"
           />
-        </svg>
+        </svg> */}
 
         <img
           className="max-w-full w-[200px] animate__animated animate__fadeInUp"
