@@ -19,8 +19,7 @@ const Tarot = () => {
 
   const { data } = useQuery(QUERY_TAROTS_NAMESHORT);
   // const cardNameShort = getCards();
-  console.log();
-
+  console.log(data);
   // console.log(cardNameShort);
   function getRandomCard(cards) {
     let numOfitems = 3;
@@ -29,7 +28,6 @@ const Tarot = () => {
     // if the number is positive, it will move the item to the right, if it is negative, it will move the item to the left
     let shuffled = cards.sort(() => 0.5 - Math.random());
     const selectedNum = shuffled.slice(0, numOfitems);
-    // setCard1(selectedNum[0]);
 
     setCard1(data.tarots[selectedNum[0]].nameShort);
     setCard2(data.tarots[selectedNum[1]].nameShort);
