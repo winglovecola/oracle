@@ -48,7 +48,7 @@ function App() {
           className="flex flex-col h-screen bg-slate-950 text-white p-6"
           style={{
             backgroundImage:
-              'linear-gradient(180deg, rgba(83,4,125,1) 0%, rgba(0,0,0,0.6376925770308124) 100%),url(/src/img/site/marius-teodorescu-resize.jpg)',
+              'linear-gradient(180deg, rgba(83,4,125,0.8) 0%, rgba(0,0,0,0.6376925770308124) 100%),url(/src/img/site/tarot-table.jpg)',
           }}>
           <StoreProvider>
             <Nav />
