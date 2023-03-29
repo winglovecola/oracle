@@ -22,7 +22,7 @@ function ProphecyHistory() {
 
 
   return (
-    "TESTTEST"
+    <h3>Prophecy History</h3>
   );
 }
 
