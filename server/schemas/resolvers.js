@@ -30,13 +30,11 @@ const resolvers = {
       return await Tarot.find();
     },
     tarots: async (parent, args) => {
-      // return await Tarot.find();
-      console.log(args.nameShorts);
       return await Tarot.find({ nameShort: { $in: args.nameShorts } });
     },
-    tarot: async (parent, args) => {
-      return await Tarot.findOne({ nameShort: args.nameShort });
-    },
+    // tarot: async (parent, args) => {
+    //   return await Tarot.findOne({ nameShort: args.nameShort });
+    // },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({

@@ -28,12 +28,6 @@ const Tarot = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
-  // const { data } = useQuery(QUERY_TAROTS_NAMESHORT);
-  // console.log(data);
-
-  // // const { loading, error, data } = useQuery(QUERY_TAROTS_NAMESHORT);
-  // // const cardNameShort = getCards();
-
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
 
@@ -59,24 +53,6 @@ const Tarot = () => {
     setThreeCards(threeCards);
   }
 
-  function GetThreeCardsDetails(cards) {
-    console.log(threeCardsData);
-    // const allCardsArr = [...threeCardsData];
-    // console.log(allCardsArr);
-  }
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
-  //   console.log(formState);
-  // };
-
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormState({
-  //     ...formState,
-  //     [name]: value,
-  //   });
-  // };
-
   return (
     <main className="container mx-auto py-6 flex flex-col grow">
       <button
@@ -84,43 +60,6 @@ const Tarot = () => {
         onClick={() => getRandomCard()}>
         random
       </button>
-
-      {/* <form
-        onSubmit={handleFormSubmit}
-        className="flex flex-col w-full max-w-xs bg-white shadow-md rounded text-black">
-        <label htmlFor="Num1">First Number:</label>
-        <input
-          className="text-black"
-          type="text"
-          id="Num1"
-          name="Num1"
-          placeholder="1st Number"
-          onChange={handleChange}
-        />
-        <label htmlFor="Num2">2nd Number:</label>
-        <input
-          className="text-black"
-          type="text"
-          id="Num2"
-          name="Num2"
-          placeholder="2nd Number"
-          onChange={handleChange}
-        />
-        <label htmlFor="Num3">3rd Number:</label>
-        <input
-          className="text-black"
-          type="text"
-          id="Num3"
-          name="Num3"
-          placeholder="3rd Number"
-          onChange={handleChange}
-        />
-        <button
-          className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-          type="submit">
-          Submit
-        </button>
-      </form> */}
 
       <section className=" flex grow justify-center items-center">
         <div>
