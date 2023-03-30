@@ -32,6 +32,10 @@
   }
 }
 
+.flipCardUpsideDown {
+  transform: rotateX(180deg);
+}
+
 // .flip-tarot-card-container {
 //   perspective: 1000px;
 

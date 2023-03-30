@@ -43,9 +43,8 @@ const Tarot = () => {
     return upOrReserve;
   }
 
-  //Will flip the card if it is reversed
-  const flipCards =
-    card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' };
+  //Flip the card if it is reversed
+  const shouldFlip = (value) => (value === 'R' ? 'flipCardUpsideDown' : '');
 
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
@@ -75,21 +74,21 @@ const Tarot = () => {
       `${threeCards[0]}`,
       `/src/img/tarot-card/${threeCards[0]}.jpg`,
       `${arrOfSides[0]}`,
-      ``,
+      `${shouldFlip(arrOfSides[0])}`,
     ]);
 
     setCard2([
       `${threeCards[1]}`,
       `/src/img/tarot-card/${threeCards[1]}.jpg`,
       `${arrOfSides[1]}`,
-      ``,
+      `${shouldFlip(arrOfSides[1])}`,
     ]);
 
     setCard3([
       `${threeCards[2]}`,
       `/src/img/tarot-card/${threeCards[2]}.jpg`,
       `${arrOfSides[2]}`,
-      ``,
+      `${shouldFlip(arrOfSides[2])}`,
     ]);
 
     setArrOf3Cards(threeCards);
@@ -109,7 +108,6 @@ const Tarot = () => {
             {card1[0]} {card1[2]}
           </h6>
           <img
-            style={flipCards}
             className={`max-w-full w-[200px] ${card1[3]}`}
             src={card1[1]}
             alt={`Tarot Card Name: ${card1[0]}`}
@@ -120,7 +118,6 @@ const Tarot = () => {
             {card2[0]} {card2[2]}
           </h6>
           <img
-            style={flipCards}
             className={`max-w-full w-[200px] ${card2[3]}`}
             src={card2[1]}
             alt={`Tarot Card Name: ${card2[0]}`}
@@ -131,7 +128,6 @@ const Tarot = () => {
             {card3[0]} {card3[2]}
           </h6>
           <img
-            style={flipCards}
             className={`max-w-full w-[200px] ${card3[3]}`}
             src={card3[1]}
             alt={`Tarot Card Name: ${card3[0]}`}
