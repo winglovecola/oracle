@@ -4,7 +4,7 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 const Tarot = () => {
-  const [card1, setCard1] = useState('');
+  const [card1, setCard1] = useState(['', 'site/tarot-card-cover.svg']);
   const [card2, setCard2] = useState('');
   const [card3, setCard3] = useState('');
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
@@ -34,6 +34,8 @@ const Tarot = () => {
     return upOrReserve;
   }
 
+  function flipCards() {}
+
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
 
@@ -58,9 +60,11 @@ const Tarot = () => {
     }
     console.log(arrOfSides);
 
-    setCard1(`${threeCards[0]}, ${arrOfSides[0]}`);
-    setCard2(`${threeCards[1]}, ${arrOfSides[1]}`);
-    setCard3(`${threeCards[2]}, ${arrOfSides[2]}`);
+    setCard1(`${threeCards[0]}`);
+    setCard2(`${threeCards[1]}`);
+    setCard3(`${threeCards[2]}`);
+    // setCard2(`${threeCards[1]}, ${arrOfSides[1]}`);
+    // setCard3(`${threeCards[2]}, ${arrOfSides[2]}`);
 
     setArrOf3Cards(threeCards);
   }
@@ -79,6 +83,11 @@ const Tarot = () => {
           <img
             className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
             src="/src/img/site/tarot-card-cover.svg"
+            alt="Crystal Ball"
+          />
+          <img
+            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            src={`/src/img/tarot-card/${card1}.jpg`}
             alt="Crystal Ball"
           />
         </div>
