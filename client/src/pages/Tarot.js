@@ -8,7 +8,7 @@ const Tarot = () => {
     '',
     '/src/img/site/tarot-card-cover.svg',
     '',
-    `rolate-ball`,
+    `animate__animated animate__slideInDown`,
   ];
   const [card1, setCard1] = useState(cardDefaultValueArr);
   const [card2, setCard2] = useState(cardDefaultValueArr);
@@ -43,7 +43,9 @@ const Tarot = () => {
     return upOrReserve;
   }
 
-  function flipCards() {}
+  //Will flip the card if it is reversed
+  const flipCards =
+    card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' };
 
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
@@ -80,12 +82,14 @@ const Tarot = () => {
       `${threeCards[1]}`,
       `/src/img/tarot-card/${threeCards[1]}.jpg`,
       `${arrOfSides[1]}`,
+      ``,
     ]);
 
     setCard3([
       `${threeCards[2]}`,
       `/src/img/tarot-card/${threeCards[2]}.jpg`,
       `${arrOfSides[2]}`,
+      ``,
     ]);
 
     setArrOf3Cards(threeCards);
@@ -105,12 +109,10 @@ const Tarot = () => {
             {card1[0]} {card1[2]}
           </h6>
           <img
-            style={
-              card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' }
-            }
+            style={flipCards}
             className={`max-w-full w-[200px] ${card1[3]}`}
             src={card1[1]}
-            alt="Crystal Ball"
+            alt={`Tarot Card Name: ${card1[0]}`}
           />
         </div>
         <div>
@@ -118,12 +120,10 @@ const Tarot = () => {
             {card2[0]} {card2[2]}
           </h6>
           <img
-            style={
-              card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' }
-            }
-            className="max-w-full w-[200px] animate__animated animate__slideInDown"
+            style={flipCards}
+            className={`max-w-full w-[200px] ${card2[3]}`}
             src={card2[1]}
-            alt="Crystal Ball"
+            alt={`Tarot Card Name: ${card2[0]}`}
           />
         </div>
         <div>
@@ -131,12 +131,10 @@ const Tarot = () => {
             {card3[0]} {card3[2]}
           </h6>
           <img
-            style={
-              card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' }
-            }
-            className="max-w-full w-[200px] "
+            style={flipCards}
+            className={`max-w-full w-[200px] ${card3[3]}`}
             src={card3[1]}
-            alt="Crystal Ball"
+            alt={`Tarot Card Name: ${card3[0]}`}
           />
         </div>
       </section>
