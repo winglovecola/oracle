@@ -4,9 +4,10 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 const Tarot = () => {
-  const [card1, setCard1] = useState(['', 'site/tarot-card-cover.svg']);
-  const [card2, setCard2] = useState('');
-  const [card3, setCard3] = useState('');
+  const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
+  const [card1, setCard1] = useState(cardDefaultValueArr);
+  const [card2, setCard2] = useState(cardDefaultValueArr);
+  const [card3, setCard3] = useState(cardDefaultValueArr);
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
@@ -60,11 +61,23 @@ const Tarot = () => {
     }
     console.log(arrOfSides);
 
-    setCard1(`${threeCards[0]}`);
-    setCard2(`${threeCards[1]}`);
-    setCard3(`${threeCards[2]}`);
-    // setCard2(`${threeCards[1]}, ${arrOfSides[1]}`);
-    // setCard3(`${threeCards[2]}, ${arrOfSides[2]}`);
+    setCard1([
+      `${threeCards[0]}`,
+      `/src/img/tarot-card/${threeCards[0]}.jpg`,
+      `${arrOfSides[0]}`,
+    ]);
+
+    setCard2([
+      `${threeCards[1]}`,
+      `/src/img/tarot-card/${threeCards[1]}.jpg`,
+      `${arrOfSides[1]}`,
+    ]);
+
+    setCard3([
+      `${threeCards[2]}`,
+      `/src/img/tarot-card/${threeCards[2]}.jpg`,
+      `${arrOfSides[2]}`,
+    ]);
 
     setArrOf3Cards(threeCards);
   }
@@ -79,31 +92,32 @@ const Tarot = () => {
 
       <section className=" flex grow justify-center items-center">
         <div>
-          <h6>{card1}</h6>
+          <h6>
+            {card1[0]} {card1[2]}
+          </h6>
           <img
             className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
-            src="/src/img/site/tarot-card-cover.svg"
-            alt="Crystal Ball"
-          />
-          <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
-            src={`/src/img/tarot-card/${card1}.jpg`}
+            src={card1[1]}
             alt="Crystal Ball"
           />
         </div>
-        <div className="card">
-          <h6>{card2}</h6>
+        <div>
+          <h6>
+            {card2[0]} {card2[2]}
+          </h6>
           <img
-            className="max-w-full w-[200px] mx-4 animate__animated animate__fadeInRight"
-            src="/src/img/site/tarot-card-cover.svg"
+            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            src={card2[1]}
             alt="Crystal Ball"
           />
         </div>
-        <div className="card">
-          <h6>{card3}</h6>
+        <div>
+          <h6>
+            {card3[0]} {card3[2]}
+          </h6>
           <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInUp"
-            src="/src/img/site/tarot-card-cover.svg"
+            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            src={card3[1]}
             alt="Crystal Ball"
           />
         </div>
