@@ -48,7 +48,7 @@ db.once('open', async () => {
   await ProphecyHistory.create({
     cards: 'ar03 ar04 ar05',
     cardPosition: 'U R U',
-    resultsAI: 'You are going to have a great day!',
+    resultsAI: 'You are going to win the lottery!',
     readingDate: '1680191701',
     user: 'User2',
   });

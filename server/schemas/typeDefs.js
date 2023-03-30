@@ -62,6 +62,7 @@ const typeDefs = gql`
     checkout(products: [ID]!): Checkout
     tarots: [Tarot]
     tarot(nameShort: String!): Tarot
+    prophecyHistories: [prophecyHistory]
   }
 
   type Mutation {
