@@ -4,10 +4,16 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 const Tarot = () => {
-  const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
+  const cardDefaultValueArr = [
+    '',
+    '/src/img/site/tarot-card-cover.svg',
+    '',
+    `rolate-ball`,
+  ];
   const [card1, setCard1] = useState(cardDefaultValueArr);
   const [card2, setCard2] = useState(cardDefaultValueArr);
   const [card3, setCard3] = useState(cardDefaultValueArr);
+
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
@@ -25,6 +31,8 @@ const Tarot = () => {
     }
     init();
   }, [arrOf3Cards]);
+
+  useEffect(() => {}, []);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -65,6 +73,7 @@ const Tarot = () => {
       `${threeCards[0]}`,
       `/src/img/tarot-card/${threeCards[0]}.jpg`,
       `${arrOfSides[0]}`,
+      ``,
     ]);
 
     setCard2([
@@ -90,13 +99,16 @@ const Tarot = () => {
         random
       </button>
 
-      <section className=" flex grow justify-center items-center">
+      <section className="flex grow justify-center items-center gap-5">
         <div>
           <h6>
             {card1[0]} {card1[2]}
           </h6>
           <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            style={
+              card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' }
+            }
+            className={`max-w-full w-[200px] ${card1[3]}`}
             src={card1[1]}
             alt="Crystal Ball"
           />
@@ -106,7 +118,10 @@ const Tarot = () => {
             {card2[0]} {card2[2]}
           </h6>
           <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            style={
+              card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' }
+            }
+            className="max-w-full w-[200px] animate__animated animate__slideInDown"
             src={card2[1]}
             alt="Crystal Ball"
           />
@@ -116,7 +131,10 @@ const Tarot = () => {
             {card3[0]} {card3[2]}
           </h6>
           <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
+            style={
+              card1[2] === 'R' ? { transform: 'scaleY(-1)' } : { transform: '' }
+            }
+            className="max-w-full w-[200px] "
             src={card3[1]}
             alt="Crystal Ball"
           />
