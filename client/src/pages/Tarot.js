@@ -52,17 +52,17 @@ const Tarot = () => {
       shuffled[arryNum[2] - 1].nameShort
     );
 
-    setCard1(threeCards[0]);
-    setCard2(threeCards[1]);
-    setCard3(threeCards[2]);
+    let arrOfSides = [];
+    for (let i = 0; i < threeCards.length; i++) {
+      arrOfSides.push(getSide());
+    }
+    console.log(arrOfSides);
+
+    setCard1(`${threeCards[0]}, ${arrOfSides[0]}`);
+    setCard2(`${threeCards[1]}, ${arrOfSides[1]}`);
+    setCard3(`${threeCards[2]}, ${arrOfSides[2]}`);
 
     setArrOf3Cards(threeCards);
-
-    let results = [];
-    for (let i = 0; i < threeCards.length; i++) {
-      results.push(getSide());
-    }
-    console.log(results);
   }
 
   return (
