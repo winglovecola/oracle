@@ -17,10 +17,13 @@ const Tarot = () => {
   const [card2, setCard2] = useState('');
   const [card3, setCard3] = useState('');
 
-  const { data } = useQuery(QUERY_TAROTS_NAMESHORT);
+  const { loading, error, data } = useQuery(QUERY_TAROTS_NAMESHORT);
   // const cardNameShort = getCards();
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   console.log(data);
-  // console.log(cardNameShort);
+
   function getRandomCard(cards) {
     let numOfitems = 3;
 
@@ -28,10 +31,18 @@ const Tarot = () => {
     // if the number is positive, it will move the item to the right, if it is negative, it will move the item to the left
     let shuffled = cards.sort(() => 0.5 - Math.random());
     const selectedNum = shuffled.slice(0, numOfitems);
+    // console.log(selectedNum);
 
-    setCard1(data.tarots[selectedNum[0]].nameShort);
-    setCard2(data.tarots[selectedNum[1]].nameShort);
-    setCard3(data.tarots[selectedNum[2]].nameShort);
+    getNumbers(selectedNum);
+  }
+
+  function getNumbers(numbers = [1, 2, 3]) {
+    console.log(numbers);
+    console.log(data);
+
+    // setCard1(data.tarots[selectedNum[0]].nameShort);
+    // setCard2(data.tarots[selectedNum[1]].nameShort);
+    // setCard3(data.tarots[selectedNum[2]].nameShort);
   }
 
   return (
