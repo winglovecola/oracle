@@ -28,6 +28,12 @@ const Tarot = () => {
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
+  // Get upright or reversed
+  function getSide() {
+    let upOrReserve = Math.random() > 0.5 ? 'U' : 'R';
+    return upOrReserve;
+  }
+
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
 
@@ -51,6 +57,12 @@ const Tarot = () => {
     setCard3(threeCards[2]);
 
     setArrOf3Cards(threeCards);
+
+    let results = [];
+    for (let i = 0; i < threeCards.length; i++) {
+      results.push(getSide());
+    }
+    console.log(results);
   }
 
   return (
