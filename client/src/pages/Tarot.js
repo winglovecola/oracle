@@ -7,9 +7,9 @@ const Tarot = () => {
   const [card1, setCard1] = useState('');
   const [card2, setCard2] = useState('');
   const [card3, setCard3] = useState('');
-  const [formState, setFormState] = useState({});
 
-  const { loading, error, data } = useQuery(QUERY_TAROTS);
+  const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
+
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
 
@@ -20,7 +20,7 @@ const Tarot = () => {
   // // const cardNameShort = getCards();
 
   function getRandomCard() {
-    const allCardsArr = [...data.tarotAll];
+    const allCardsArr = [...allCardsData.tarotAll];
 
     const arryNum = [1, 25, 78];
 
@@ -29,11 +29,29 @@ const Tarot = () => {
     let shuffled = allCardsArr.sort(() => 0.5 - Math.random());
     console.log(shuffled);
 
-    setCard1(shuffled[arryNum[0] - 1].nameShort);
-    setCard2(shuffled[arryNum[1] - 1].nameShort);
-    setCard3(shuffled[arryNum[2] - 1].nameShort);
+    const threeCards = [];
+
+    threeCards.push(
+      shuffled[arryNum[0] - 1].nameShort,
+      shuffled[arryNum[1] - 1].nameShort,
+      shuffled[arryNum[2] - 1].nameShort
+    );
+
+    setCard1(threeCards[0]);
+    setCard2(threeCards[1]);
+    setCard3(threeCards[2]);
+
+    GetThreeCardsDetails(threeCards);
   }
 
+  function GetThreeCardsDetails(cards) {
+    const { data: threeCardsData } = useQuery(QUERY_TAROTS_NAMESHORT, {
+      variables: { cards },
+    });
+    console.log(threeCardsData);
+    // const allCardsArr = [...threeCardsData];
+    // console.log(allCardsArr);
+  }
   // const handleFormSubmit = async (event) => {
   //   event.preventDefault();
   //   console.log(formState);

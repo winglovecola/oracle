@@ -76,20 +76,17 @@ export const QUERY_TAROTS = gql`
     }
   }
 `;
+
 export const QUERY_TAROTS_NAMESHORT = gql`
-  {
-    tarots {
+  query Query($nameShorts: [String!]) {
+    tarots(nameShorts: $nameShorts) {
+      name
       nameShort
+      type
+      value
+      meaningUp
+      meaningRev
+      desc
     }
   }
 `;
-
-// export const QUERY_TAROTS_NAMESHORT = gql`
-//   query Query($nameShorts: [String!]) {
-//     tarots(nameShorts: $nameShorts) {
-//       nameShort
-//       name
-//       meaningUp
-//     }
-//   }
-// `;
