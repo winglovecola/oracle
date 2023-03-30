@@ -7,23 +7,23 @@ const Tarot = () => {
   const [card1, setCard1] = useState('');
   const [card2, setCard2] = useState('');
   const [card3, setCard3] = useState('');
-  const [threeCards, setThreeCards] = useState([]);
+  const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
-  const [getThreeCards, { data: threeCardsData }] = useLazyQuery(
+  const [FnGetThreeCards, { data: threeCardsData }] = useLazyQuery(
     QUERY_TAROTS_NAMESHORT,
     {
-      variables: { nameShorts: threeCards },
+      variables: { nameShorts: arrOf3Cards },
     }
   );
   useEffect(() => {
     async function init() {
-      console.log(threeCards);
-      await getThreeCards();
+      console.log(arrOf3Cards);
+      await FnGetThreeCards();
       console.log(threeCardsData);
     }
     init();
-  }, [threeCards]);
+  }, [arrOf3Cards]);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -50,7 +50,7 @@ const Tarot = () => {
     setCard2(threeCards[1]);
     setCard3(threeCards[2]);
 
-    setThreeCards(threeCards);
+    setArrOf3Cards(threeCards);
   }
 
   return (
