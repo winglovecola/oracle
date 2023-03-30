@@ -19,9 +19,7 @@ const Tarot = () => {
   // // const { loading, error, data } = useQuery(QUERY_TAROTS_NAMESHORT);
   // // const cardNameShort = getCards();
 
-  function getRandomCard(cards) {
-    let numOfitems = 3;
-
+  function getRandomCard() {
     const allCardsArr = [...data.tarotAll];
 
     const arryNum = [1, 25, 78];
@@ -30,15 +28,11 @@ const Tarot = () => {
     // if the number is positive, it will move the item to the right, if it is negative, it will move the item to the left
     let shuffled = allCardsArr.sort(() => 0.5 - Math.random());
     console.log(shuffled);
-    // const selectedNum = shuffled.slice(0, numOfitems);
-    // console.log(selectedNum);
 
-    // getNumbers(selectedNum);
+    setCard1(shuffled[arryNum[0] - 1].nameShort);
+    setCard2(shuffled[arryNum[1] - 1].nameShort);
+    setCard3(shuffled[arryNum[2] - 1].nameShort);
   }
-
-  // setCard1(data.tarots[selectedNum[0]].nameShort);
-  // setCard2(data.tarots[selectedNum[1]].nameShort);
-  // setCard3(data.tarots[selectedNum[2]].nameShort);
 
   // const handleFormSubmit = async (event) => {
   //   event.preventDefault();
@@ -57,7 +51,7 @@ const Tarot = () => {
     <main className="container mx-auto py-6 flex flex-col grow">
       <button
         className="btn bg-purple-500 text-white"
-        onClick={() => getRandomCard(cards)}>
+        onClick={() => getRandomCard()}>
         random
       </button>
 
