@@ -30,8 +30,9 @@ const resolvers = {
       return await Tarot.find();
     },
     tarots: async (parent, args) => {
-      return await Tarot.find();
-      // return await Tarot.find({ nameShort: { $in: args.nameShort } });
+      // return await Tarot.find();
+      console.log(args.nameShorts);
+      return await Tarot.find({ nameShort: { $in: args.nameShorts } });
     },
     tarot: async (parent, args) => {
       return await Tarot.findOne({ nameShort: args.nameShort });

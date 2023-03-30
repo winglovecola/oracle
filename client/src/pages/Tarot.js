@@ -1,14 +1,29 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 const Tarot = () => {
   const [card1, setCard1] = useState('');
   const [card2, setCard2] = useState('');
   const [card3, setCard3] = useState('');
+  const [threeCards, setThreeCards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
+  const [getThreeCards, { data: threeCardsData }] = useLazyQuery(
+    QUERY_TAROTS_NAMESHORT,
+    {
+      variables: { nameShorts: threeCards },
+    }
+  );
+  useEffect(() => {
+    async function init() {
+      console.log(threeCards);
+      await getThreeCards();
+      console.log(threeCardsData);
+    }
+    init();
+  }, [threeCards]);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -41,13 +56,10 @@ const Tarot = () => {
     setCard2(threeCards[1]);
     setCard3(threeCards[2]);
 
-    GetThreeCardsDetails(threeCards);
+    setThreeCards(threeCards);
   }
 
   function GetThreeCardsDetails(cards) {
-    const { data: threeCardsData } = useQuery(QUERY_TAROTS_NAMESHORT, {
-      variables: { cards },
-    });
     console.log(threeCardsData);
     // const allCardsArr = [...threeCardsData];
     // console.log(allCardsArr);
