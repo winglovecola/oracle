@@ -16,13 +16,24 @@ function ProphecyHistory() {
     user = data.user;
     console.log (user);
   }
-  
-  //TODO
 
+  const [historyContainer, setHistory] = useState([]);
 
+  const removeHistoryItem = (id) => {
+    const updatedHistory = [...historyContainer].filter((item) => item.id !== id);
+
+    setHistory(updatedHistory);
+  };
 
   return (
-    "TESTTEST"
+    <div>
+      <h1>History of Prophecies</h1>
+      <div
+        historyContainer={historyContainer}
+        removeHistoryItem={removeHistoryItem}
+      ></div>
+      <h1>Bottom Check - History of Prophecies</h1>
+    </div>
   );
 }
 

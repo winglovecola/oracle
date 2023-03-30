@@ -9,7 +9,7 @@ const prophecyHistorySchema = new Schema({
     trim: true
   },
   cardPosition: {
-    type: Number, // 0 = upright, 1 = reverse (?)
+    type: String, // U = Upright, R = Reversed
     required: true,
     trim: true
   },
@@ -20,7 +20,7 @@ const prophecyHistorySchema = new Schema({
   },
   readingDate: {
     type: Date,
-    default: Date.now(), // Likely needs to change
+    default: Date.now(),
   },
   user: {
     type: String,

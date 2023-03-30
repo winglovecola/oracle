@@ -1,5 +1,5 @@
 const db = require('./connection');
-const { User, Product, Category, Tarot } = require('../models');
+const { User, Product, Category, Tarot, ProphecyHistory} = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -37,6 +37,23 @@ db.once('open', async () => {
 
 
   console.log('products seeded');
+
+  await ProphecyHistory.create({
+    cards: 'ar01 ar02 ar03',
+    cardPosition: 'R U R',
+    resultsAI: 'Your life is going to be great!',
+    readingDate: '1680191717',
+    user: 'User1',
+  });
+  await ProphecyHistory.create({
+    cards: 'ar03 ar04 ar05',
+    cardPosition: 'U R U',
+    resultsAI: 'You are going to have a great day!',
+    readingDate: '1680191701',
+    user: 'User2',
+  });
+
+  console.log("ProphecyHistory seeded");
 
   await User.deleteMany();
 
