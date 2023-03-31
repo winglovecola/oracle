@@ -53,6 +53,14 @@ const typeDefs = gql`
     user: User
   }
 
+  type ProphecyHistory{
+    cards: String
+    cardPosition: String # U = Upright, R = Reversed
+    resultsAI: String
+    # readingDate: Date
+    user: String
+  }
+
   type Query {
     categories: [Category]
     products(category: ID, name: String): [Product]
@@ -62,7 +70,7 @@ const typeDefs = gql`
     checkout(products: [ID]!): Checkout
     tarots: [Tarot]
     tarot(nameShort: String!): Tarot
-    prophecyHistories: [prophecyHistory]
+    prophecyHistories: [ProphecyHistory]
   }
 
   type Mutation {

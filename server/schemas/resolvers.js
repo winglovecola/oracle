@@ -5,7 +5,7 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    prophecyHistory: async () => {
+    prophecyHistories: async () => {
       return await ProphecyHistory.find();
     },
     categories: async () => {
