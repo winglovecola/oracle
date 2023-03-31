@@ -17,20 +17,29 @@ const Tarot = () => {
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
-  const [FnGetThreeCards, { data: threeCardsData }] = useLazyQuery(
-    QUERY_TAROTS_NAMESHORT,
-    {
-      variables: { nameShorts: arrOf3Cards },
-    }
-  );
+  const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
+  // const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
   useEffect(() => {
     async function init() {
       console.log(arrOf3Cards);
-      await FnGetThreeCards();
-      console.log(threeCardsData);
+      const threeCardsData = await FnGetThreeCards({
+        variables: { nameShorts: arrOf3Cards },
+      });
+      console.log(threeCardsData.data);
     }
     init();
   }, [arrOf3Cards]);
+
+  // useEffect(() => {
+  //   async function init() {
+  //     console.log(arrOf3Cards);
+  //     const threeCardsData = await FnGetThreeCards({
+  //       variables: { nameShorts: arrOf3Cards },
+  //     });
+  //     console.log(threeCardsData.data);
+  //   }
+  //   init();
+  // }, [arrOf3Cards]);
 
   useEffect(() => {}, []);
 
@@ -58,6 +67,7 @@ const Tarot = () => {
 
     const threeCards = [];
 
+    // Get 3 random cards
     threeCards.push(
       shuffled[arryNum[0] - 1].nameShort,
       shuffled[arryNum[1] - 1].nameShort,
