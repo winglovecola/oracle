@@ -4,15 +4,19 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 const Tarot = () => {
-  const cardDefaultValueArr = [
-    '',
-    '/src/img/site/tarot-card-cover.svg',
-    '',
-    `animate__animated animate__slideInDown`,
-  ];
-  const [card1, setCard1] = useState(cardDefaultValueArr);
-  const [card2, setCard2] = useState(cardDefaultValueArr);
-  const [card3, setCard3] = useState(cardDefaultValueArr);
+  const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
+  const [card1, setCard1] = useState([
+    ...cardDefaultValueArr,
+    [`animate__animated animate__flipInY`],
+  ]);
+  const [card2, setCard2] = useState([
+    ...cardDefaultValueArr,
+    [`animate__animated animate__flip`],
+  ]);
+  const [card3, setCard3] = useState([
+    ...cardDefaultValueArr,
+    [`animate__animated animate__flipInX`],
+  ]);
 
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
@@ -106,31 +110,38 @@ const Tarot = () => {
           <h6>
             {card1[0]} {card1[2]}
           </h6>
-          <img
-            className={`max-w-full w-[200px] ${card1[3]}`}
-            src={card1[1]}
-            alt={`Tarot Card Name: ${card1[0]}`}
-          />
+          <div className={card1[3]}>
+            <img
+              className={`max-w-full w-[200px] `}
+              src={card1[1]}
+              alt={`Tarot Card Name: ${card1[0]}`}
+            />
+          </div>
         </div>
         <div>
           <h6>
             {card2[0]} {card2[2]}
           </h6>
-          <img
-            className={`max-w-full w-[200px] ${card2[3]}`}
-            src={card2[1]}
-            alt={`Tarot Card Name: ${card2[0]}`}
-          />
+          <div className={card2[3]}>
+            <img
+              className={`max-w-full w-[200px]`}
+              src={card2[1]}
+              alt={`Tarot Card Name: ${card2[0]}`}
+            />
+          </div>
         </div>
         <div>
           <h6>
             {card3[0]} {card3[2]}
           </h6>
-          <img
-            className={`max-w-full w-[200px] ${card3[3]}`}
-            src={card3[1]}
-            alt={`Tarot Card Name: ${card3[0]}`}
-          />
+          <div className={card3[3]}>
+            <img
+              key={Math.random()}
+              className={`max-w-full w-[200px] animate__animated animate__flip `}
+              src={card3[1]}
+              alt={`Tarot Card Name: ${card3[0]}`}
+            />
+          </div>
         </div>
       </section>
     </main>
