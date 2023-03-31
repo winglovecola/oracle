@@ -4,9 +4,20 @@ import { useQuery, useLazyQuery } from '@apollo/client';
 import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 const Tarot = () => {
-  const [card1, setCard1] = useState('');
-  const [card2, setCard2] = useState('');
-  const [card3, setCard3] = useState('');
+  const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
+  const [card1, setCard1] = useState([
+    ...cardDefaultValueArr,
+    [`animate__animated animate__flip`],
+  ]);
+  const [card2, setCard2] = useState([
+    ...cardDefaultValueArr,
+    [`animate__animated animate__flip`],
+  ]);
+  const [card3, setCard3] = useState([
+    ...cardDefaultValueArr,
+    [`animate__animated animate__flip`],
+  ]);
+
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
@@ -19,8 +30,9 @@ const Tarot = () => {
   useEffect(() => {
     async function init() {
       console.log(arrOf3Cards);
-      await FnGetThreeCards();
-      console.log(threeCardsData);
+      FnGetThreeCards().then((res) => {
+        console.log(threeCardsData);
+      });
     }
     init();
   }, [arrOf3Cards]);
@@ -34,6 +46,9 @@ const Tarot = () => {
     return upOrReserve;
   }
 
+  //Flip the card if it is reversed
+  const shouldFlip = (value) => (value === 'R' ? 'flipCardUpsideDown' : '');
+
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
 
@@ -46,6 +61,7 @@ const Tarot = () => {
 
     const threeCards = [];
 
+    // Get 3 random cards
     threeCards.push(
       shuffled[arryNum[0] - 1].nameShort,
       shuffled[arryNum[1] - 1].nameShort,
@@ -58,9 +74,26 @@ const Tarot = () => {
     }
     console.log(arrOfSides);
 
-    setCard1(`${threeCards[0]}, ${arrOfSides[0]}`);
-    setCard2(`${threeCards[1]}, ${arrOfSides[1]}`);
-    setCard3(`${threeCards[2]}, ${arrOfSides[2]}`);
+    setCard1([
+      `${threeCards[0]}`,
+      `/src/img/tarot-card/${threeCards[0]}.jpg`,
+      `${arrOfSides[0]}`,
+      `${shouldFlip(arrOfSides[0])}`,
+    ]);
+
+    setCard2([
+      `${threeCards[1]}`,
+      `/src/img/tarot-card/${threeCards[1]}.jpg`,
+      `${arrOfSides[1]}`,
+      `${shouldFlip(arrOfSides[1])}`,
+    ]);
+
+    setCard3([
+      `${threeCards[2]}`,
+      `/src/img/tarot-card/${threeCards[2]}.jpg`,
+      `${arrOfSides[2]}`,
+      `${shouldFlip(arrOfSides[2])}`,
+    ]);
 
     setArrOf3Cards(threeCards);
   }
@@ -73,30 +106,45 @@ const Tarot = () => {
         random
       </button>
 
-      <section className=" flex grow justify-center items-center">
+      <section className="flex grow justify-center items-center gap-5">
         <div>
-          <h6>{card1}</h6>
-          <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInLeft"
-            src="/src/img/site/tarot-card-cover.svg"
-            alt="Crystal Ball"
-          />
+          <h6>
+            {card1[0]} {card1[2]}
+          </h6>
+          <div className={card1[3]}>
+            <img
+              key={Math.random()}
+              className={`max-w-full w-[200px] rounded animate__animated animate__flip`}
+              src={card1[1]}
+              alt={`Tarot Card Name: ${card1[0]}`}
+            />
+          </div>
         </div>
-        <div className="card">
-          <h6>{card2}</h6>
-          <img
-            className="max-w-full w-[200px] mx-4 animate__animated animate__fadeInRight"
-            src="/src/img/site/tarot-card-cover.svg"
-            alt="Crystal Ball"
-          />
+        <div>
+          <h6>
+            {card2[0]} {card2[2]}
+          </h6>
+          <div className={card2[3]}>
+            <img
+              key={Math.random()}
+              className={`max-w-full w-[200px] rounded animate__animated animate__flip`}
+              src={card2[1]}
+              alt={`Tarot Card Name: ${card2[0]}`}
+            />
+          </div>
         </div>
-        <div className="card">
-          <h6>{card3}</h6>
-          <img
-            className="max-w-full w-[200px] animate__animated animate__fadeInUp"
-            src="/src/img/site/tarot-card-cover.svg"
-            alt="Crystal Ball"
-          />
+        <div>
+          <h6>
+            {card3[0]} {card3[2]}
+          </h6>
+          <div className={card3[3]}>
+            <img
+              key={Math.random()}
+              className={`max-w-full w-[200px] rounded animate__animated animate__flip`}
+              src={card3[1]}
+              alt={`Tarot Card Name: ${card3[0]}`}
+            />
+          </div>
         </div>
       </section>
     </main>
