@@ -36,7 +36,7 @@ const Tarot = () => {
 
       const { data: threeCardsData } = await FnGetThreeCards();
       console.log(threeCardsData.tarots);
-      promptChatGpt();
+      // promptChatGpt();
     }
     init();
   }, [arrOf3Cards]);
