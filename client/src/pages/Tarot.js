@@ -7,7 +7,7 @@ const Tarot = () => {
   const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
   const [card1, setCard1] = useState([
     ...cardDefaultValueArr,
-    [`animate__animated animate__flipInY`],
+    [`animate__animated animate__flip`],
   ]);
   const [card2, setCard2] = useState([
     ...cardDefaultValueArr,
@@ -15,7 +15,7 @@ const Tarot = () => {
   ]);
   const [card3, setCard3] = useState([
     ...cardDefaultValueArr,
-    [`animate__animated animate__flipInX`],
+    [`animate__animated animate__flip`],
   ]);
 
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
@@ -30,8 +30,9 @@ const Tarot = () => {
   useEffect(() => {
     async function init() {
       console.log(arrOf3Cards);
-      const { data: threeCardsData } = await FnGetThreeCards();
-      console.log(threeCardsData.tarots);
+      FnGetThreeCards().then((res) => {
+        console.log(threeCardsData);
+      });
     }
     init();
   }, [arrOf3Cards]);
@@ -112,7 +113,8 @@ const Tarot = () => {
           </h6>
           <div className={card1[3]}>
             <img
-              className={`max-w-full w-[200px] `}
+              key={Math.random()}
+              className={`max-w-full w-[200px] rounded animate__animated animate__flip`}
               src={card1[1]}
               alt={`Tarot Card Name: ${card1[0]}`}
             />
@@ -124,7 +126,8 @@ const Tarot = () => {
           </h6>
           <div className={card2[3]}>
             <img
-              className={`max-w-full w-[200px]`}
+              key={Math.random()}
+              className={`max-w-full w-[200px] rounded animate__animated animate__flip`}
               src={card2[1]}
               alt={`Tarot Card Name: ${card2[0]}`}
             />
@@ -137,7 +140,7 @@ const Tarot = () => {
           <div className={card3[3]}>
             <img
               key={Math.random()}
-              className={`max-w-full w-[200px] animate__animated animate__flip `}
+              className={`max-w-full w-[200px] rounded animate__animated animate__flip`}
               src={card3[1]}
               alt={`Tarot Card Name: ${card3[0]}`}
             />
