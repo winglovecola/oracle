@@ -17,31 +17,20 @@ const Tarot = () => {
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
-  const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
-  // const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
+  const [FnGetThreeCards, { data: threeCardsData }] = useLazyQuery(
+    QUERY_TAROTS_NAMESHORT,
+    {
+      variables: { nameShorts: arrOf3Cards },
+    }
+  );
   useEffect(() => {
     async function init() {
       console.log(arrOf3Cards);
-      const threeCardsData = await FnGetThreeCards({
-        variables: { nameShorts: arrOf3Cards },
-      });
-      console.log(threeCardsData.data);
+      const { data: threeCardsData } = await FnGetThreeCards();
+      console.log(threeCardsData.tarots);
     }
     init();
   }, [arrOf3Cards]);
-
-  // useEffect(() => {
-  //   async function init() {
-  //     console.log(arrOf3Cards);
-  //     const threeCardsData = await FnGetThreeCards({
-  //       variables: { nameShorts: arrOf3Cards },
-  //     });
-  //     console.log(threeCardsData.data);
-  //   }
-  //   init();
-  // }, [arrOf3Cards]);
-
-  useEffect(() => {}, []);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
