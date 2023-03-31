@@ -24,17 +24,14 @@ const Tarot = () => {
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
-  const [FnGetThreeCards, { data: threeCardsData }] = useLazyQuery(
-    QUERY_TAROTS_NAMESHORT,
-    {
-      variables: { nameShorts: arrOf3Cards },
-    }
-  );
+  const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
   useEffect(() => {
     async function init() {
       console.log(arrOf3Cards);
 
-      const { data: threeCardsData } = await FnGetThreeCards();
+      const { data: threeCardsData } = await FnGetThreeCards({
+        variables: { nameShorts: arrOf3Cards },
+      });
       console.log(threeCardsData.tarots);
       // promptChatGpt();
     }
