@@ -22,7 +22,7 @@ const Tarot = () => {
   ]);
 
   const [arrOf3Cards, setArrOf3Cards] = useState([]);
-  const [arrOf3Sides, setArrOf3Sides] = useState([]);
+  const [threeCardsWithSides, setThreeCardsWithSides] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
   const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
@@ -55,7 +55,7 @@ const Tarot = () => {
 
   let questionType, playerQuestion;
   async function promptChatGpt(questionType, playerQuestion, cardsDetails) {
-    console.log(arrOf3Sides);
+    console.log(threeCardsWithSides);
     let [card1, card2, card3] = cardsDetails;
     console.log(card1, card2, card3);
 
@@ -165,7 +165,7 @@ const Tarot = () => {
     ]);
 
     setArrOf3Cards(threeCards);
-    setArrOf3Sides(arrOfSides);
+    setThreeCardsWithSides([...threeCards, ...arrOfSides]);
   }
 
   return (
