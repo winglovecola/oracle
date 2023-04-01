@@ -71,7 +71,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart">
+    <div className="cart bg-gray-900">
       <div className="close" onClick={toggleCart}>
         [close]
       </div>

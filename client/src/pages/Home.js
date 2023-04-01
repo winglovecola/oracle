@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import ProductList from '../components/ProductList';
-import CategoryMenu from '../components/CategoryMenu';
-import Cart from '../components/Cart';
+// import ProductList from '../components/ProductList';
+// import CategoryMenu from '../components/CategoryMenu';
+// import Cart from '../components/Cart';
 
 const Home = () => {
   return (
@@ -27,9 +27,9 @@ const Home = () => {
           </button>
         </Link>
       </section>
-      <CategoryMenu />
+      {/* <CategoryMenu />
       <ProductList />
-      <Cart />
+      <Cart /> */}
     </main>
   );
 };
