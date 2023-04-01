@@ -6,24 +6,6 @@ import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 import chatGptApi from '../utils/openAi';
 
-// const arr1 = ['John', 'Mike', 'Wing'];
-// const arr2 = ['Wing', 'John', 'Mike'];
-// const arr3 = [];
-
-// arr1.forEach((value) => {
-//   let found = false;
-//   arr2.filter((item) => {
-//     if (!found && item === value) {
-//       arr3.push(item);
-//       found = true;
-//       console.log(arr3);
-//       return false;
-//     } else {
-//       return true;
-//     }
-//   });
-// });
-
 const Tarot = () => {
   const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
   const [card1, setCard1] = useState([
@@ -39,18 +21,18 @@ const Tarot = () => {
     [`animate__animated animate__flip`],
   ]);
 
-  const [arrOf3Cards, setArrOf3Cards] = useState([]);
-  const [threeCardsWithSides, setThreeCardsWithSides] = useState([]);
+  const [userSelected3Cards, setUserSelected3Cards] = useState([]);
+  const [cardsWithOrientation, setCardsWithOrientation] = useState([]);
 
   const { loading, error, data: allCardsData } = useQuery(QUERY_TAROTS);
-  const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
+  const [GetCardsDetails] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
   useEffect(() => {
     async function init() {
-      const { data: threeCardsData } = await FnGetThreeCards({
-        variables: { nameShorts: arrOf3Cards },
+      const { data: threeCardsData } = await GetCardsDetails({
+        variables: { nameShorts: userSelected3Cards },
       });
       // console.log(threeCardsData.tarots);
-      // console.log(arrOf3Cards);
+      // console.log(userSelected3Cards);
 
       let fixedCardOrder = [];
 
@@ -58,7 +40,7 @@ const Tarot = () => {
       //Because the second database calls sometimes returns a different order as the original array
       // We need to loop thru the original array and grab each value to compare it with the second array(cardsDetails)
       //If the value matches it will push the item to a new array. the loop will continue until each item in the secondary array is compared to the first item in the first array.
-      arrOf3Cards.forEach((value) => {
+      userSelected3Cards.forEach((value) => {
         let found = false;
         cardsDetails.filter((item) => {
           if (!found && item.nameShort === value) {
@@ -70,13 +52,13 @@ const Tarot = () => {
           }
         });
       });
-      // console.log(arrOf3Cards, fixedCardOrder);
+      console.log(userSelected3Cards, fixedCardOrder);
 
       // promptChatGpt(1, 2, fixedCardOrder);
       // promptChatGpt();
     }
     init();
-  }, [arrOf3Cards]);
+  }, [userSelected3Cards]);
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -85,7 +67,7 @@ const Tarot = () => {
 
   let questionType, playerQuestion;
   async function promptChatGpt(questionType, playerQuestion, cardsDetails) {
-    let [{ ...correctOrder }, { ...arrOfSides }] = threeCardsWithSides;
+    let [{ ...correctOrder }, { ...arrOfSides }] = cardsWithOrientation;
     console.log(arrOfSides);
     let [card1, card2, card3] = cardsDetails;
     console.log(card1, card2, card3);
@@ -199,8 +181,8 @@ const Tarot = () => {
       `${shouldFlip(arrOfSides[2])}`,
     ]);
 
-    setArrOf3Cards(threeCards);
-    setThreeCardsWithSides([{ ...threeCards }, { ...arrOfSides }]);
+    setUserSelected3Cards(threeCards);
+    setCardsWithOrientation([{ ...threeCards }, { ...arrOfSides }]);
   }
 
   return (
