@@ -12,6 +12,9 @@ function Nav() {
             <Link to="/tarot">Tarot</Link>
           </li>
           <li className="mx-1">
+            <Link to="/store">Store</Link>
+          </li>
+          <li className="mx-1">
             <Link to="/orderHistory">Order History</Link>
           </li>
           <li className="mx-1">
@@ -30,6 +33,9 @@ function Nav() {
         <ul className="">
           <li className="mx-1">
             <Link to="/tarot">Tarot</Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/store">Store</Link>
           </li>
           <li className="mx-1">
             <Link to="/signup">Signup</Link>
