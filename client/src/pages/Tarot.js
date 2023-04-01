@@ -76,22 +76,16 @@ const Tarot = () => {
     Base on the cards information provided with the follow details:
 
     First card represent the past
-
-    The first card’s name is ${card1.name} .
-
+    The first card’s name is “${card1.name}”.
     The meaning of the card is “${card1[meaning(arrOfSides[0])]}”
 
     Second card represent the present
     The second card’s name is “${card2.name}”
-
     The meaning of the card is “${card2[meaning(arrOfSides[1])]}”
-
 
     The third card represent the future
     The third card’s name is “${card3.name}”
-
     The meaning of the card is “${card3[meaning(arrOfSides[0])]}”
-
 
     Base on these tarots cards meaning and details give the player a summarize it as a story and return the prophecy to the player.
     `;
