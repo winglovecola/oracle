@@ -62,34 +62,36 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
+      <div className="cart-closed p-3" onClick={toggleCart}>
         <span role="img" aria-label="trash">
-          🛒
+          <i className="fa-solid fa-cart-shopping"></i>
         </span>
       </div>
     );
   }
 
   return (
-    <div className="cart bg-fuchsia-50 p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll ">
+    <div className="cart bg-fuchsia-50 p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll">
       <div className="close" onClick={toggleCart}>
-        [close]
+        <i className="fa-sharp fa-solid fa-x p-3">
+          <span className="hidden">[close]</span>
+        </i>
       </div>
       <div className="flex flex-col text-center h-full">
-        <h2 className="text-2xl font-bold text-gray-900 border-b-2 border-grey-500 py-5">
+        <h2 className="text-2xl font-bold text-gray-900 border-b border-grey-500 py-5">
           Shopping Cart
         </h2>
         {state.cart.length ? (
           <div className="flex flex-col h-full">
-            <div class="">
+            <div class="divide-y">
               {state.cart.map((item) => (
                 <CartItem key={item._id} item={item} />
               ))}
             </div>
 
             <div className="mt-auto flex flex-col gap-4">
-              <strong className="flex space-between w-100">
-                <span>Subtotal:</span>
+              <strong className="flex justify-between w-100">
+                <span>Subtotal</span>
                 <span>${calculateTotal()}</span>
               </strong>
 
@@ -105,12 +107,7 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <h3>
-            <span role="img" aria-label="shocked">
-              😱
-            </span>
-            You haven't added anything to your cart yet!
-          </h3>
+          <h6 className="">There is nothing in the cart!</h6>
         )}
       </div>
     </div>
