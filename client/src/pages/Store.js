@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import ProductList from '../components/ProductList';
 // import CategoryMenu from '../components/CategoryMenu';
-import Cart from '../components/Cart';
+// import Cart from '../components/Cart';
 
 const Store = () => {
   return (
@@ -11,7 +11,7 @@ const Store = () => {
       <section className="text-center flex flex-col mb-3 w-full">
         {/* <CategoryMenu /> */}
         <ProductList />
-        <Cart />
+        {/* <Cart /> */}
       </section>
     </main>
   );
