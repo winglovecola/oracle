@@ -84,7 +84,6 @@ function Signup(props) {
                   type="email"
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                  placeholder="name@example.com"
                   required=""
                   onChange={handleChange}
                 />
@@ -107,7 +106,7 @@ function Signup(props) {
 
               <button
                 type="submit"
-                className="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">
+                className="w-full text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">
                 Sign Up
               </button>
 

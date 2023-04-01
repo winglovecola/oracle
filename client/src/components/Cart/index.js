@@ -87,12 +87,15 @@ const Cart = () => {
               ))}
             </div>
 
-            <div className="mt-auto">
-              <strong>Total: ${calculateTotal()}</strong>
+            <div className="mt-auto flex flex-col gap-4">
+              <strong className="flex space-between w-100">
+                <span>Subtotal:</span>
+                <span>${calculateTotal()}</span>
+              </strong>
 
               {Auth.loggedIn() ? (
                 <button
-                  className="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  className="w-full text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                   onClick={submitCheckout}>
                   Checkout
                 </button>
