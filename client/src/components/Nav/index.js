@@ -51,11 +51,16 @@ function Nav() {
   return (
     <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
       <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
-        <Link to="/">
+        <Link to="/" className="flex">
           <img
-            className="max-w-full w-[250px]"
+            className="max-w-full w-[250px] mr-4"
             src="/src/img/site/oracle.svg"
             alt="Oracle Logo"
+          />
+          <img
+            className="max-w-full w-[55px] mx-auto rolate-ball"
+            src="/src/img/site/eye.svg"
+            alt="Eye"
           />
         </Link>
         {/* <span aria-readonly="true"> Oracle</span> */}
