@@ -64,14 +64,14 @@ const Cart = () => {
     return (
       <div className="cart-closed p-3" onClick={toggleCart}>
         <span role="img" aria-label="trash">
-          <i className="fa-solid fa-cart-shopping"></i>
+          <i className="fa-solid fa-cart-shopping text-black md:text-white"></i>
         </span>
       </div>
     );
   }
 
   return (
-    <div className="cart bg-fuchsia-50 p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll">
+    <div className="cart min-w-full md:min-w-[45%] lg:min-w-[30%] bg-fuchsia-50 p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll">
       <div className="close" onClick={toggleCart}>
         <i className="fa-sharp fa-solid fa-x p-3">
           <span className="hidden">[close]</span>

@@ -7,7 +7,7 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex gap-3">
+        <ul className="flex flex-col md:flex-row gap-3">
           <li className="px-1">
             <Link to="/tarot" className="p-3">
               Tarot
@@ -25,14 +25,14 @@ function Nav() {
               Logout
             </a>
           </li>
-          <li className="px-1 bg-indigo-600">
+          <li className="px-1 bg-fuchsia-50 md:bg-indigo-600 cart-li">
             <Cart />
           </li>
         </ul>
       );
     } else {
       return (
-        <ul className="flex gap-3">
+        <ul className="flex flex-col md:flex-row gap-3">
           <li className="px-1">
             <Link to="/tarot" className="p-3">
               Tarot
