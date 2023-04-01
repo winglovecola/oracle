@@ -23,7 +23,6 @@ import ImageUpload from './pages/ImageUpload';
 import FortuneTelling from './pages/FortuneTelling';
 import ProphecyHistory from './pages/ProphecyHistory';
 
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -47,12 +46,12 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-   {/*      <div
+        <div
           className="flex flex-col h-screen bg-slate-950 text-white p-6"
           style={{
             backgroundImage:
               'linear-gradient(180deg, rgba(83,4,125,0.8) 0%, rgba(0,0,0,0.6376925770308124) 100%),url(/src/img/site/tarot-table.jpg)',
-          }}> */}
+          }}>
           <StoreProvider>
             <Nav />
             <Routes>
@@ -70,7 +69,7 @@ function App() {
             </Routes>
             <Footer />
           </StoreProvider>
-       {/*  </div> */}
+        </div>
       </Router>
     </ApolloProvider>
   );
