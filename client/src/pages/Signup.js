@@ -38,28 +38,28 @@ function Signup(props) {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign up for an account
             </h1>
-            <form onSubmit={handleFormSubmit} className="px-8 pt-6 pb-8">
-              <div className="mb-4">
+            <form onSubmit={handleFormSubmit}>
+              <div>
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
-                  htmlFor="firstName">
-                  First Name:
+                  htmlFor="firstName"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  First Name
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="firstName"
                   id="firstName"
                   type="text"
                   placeholder="First Name"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
+                  required=""
                   onChange={handleChange}
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Your email
+                  className="block my-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Last Name
                 </label>
                 <input
                   placeholder="Last"
@@ -75,7 +75,7 @@ function Signup(props) {
               <div>
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  className="block my-2 text-sm font-medium text-gray-900 dark:text-white">
                   Your email
                 </label>
                 <input
@@ -92,7 +92,7 @@ function Signup(props) {
               <div>
                 <label
                   htmlFor="pwd"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  className="block my-2 text-sm font-medium text-gray-900 dark:text-white">
                   Password
                 </label>
                 <input
@@ -107,12 +107,11 @@ function Signup(props) {
 
               <button
                 type="submit"
-                className="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                className="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-5">
                 Sign Up
               </button>
 
-              <p className="text-sm font-light text-gray-100 ">
-                Don’t have an account yet?{' '}
+              <p className="text-sm font-light text-gray-100 mt-3">
                 <Link
                   to="/login"
                   className="font-medium text-primary-600 hover:underline block my-2">
