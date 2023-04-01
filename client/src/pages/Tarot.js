@@ -6,6 +6,24 @@ import { QUERY_TAROTS_NAMESHORT, QUERY_TAROTS } from '../utils/queries';
 
 import chatGptApi from '../utils/openAi';
 
+// const arr1 = ['John', 'Mike', 'Wing'];
+// const arr2 = ['Wing', 'John', 'Mike'];
+// const arr3 = [];
+
+// arr1.forEach((value) => {
+//   let found = false;
+//   arr2.filter((item) => {
+//     if (!found && item === value) {
+//       arr3.push(item);
+//       found = true;
+//       console.log(arr3);
+//       return false;
+//     } else {
+//       return true;
+//     }
+//   });
+// });
+
 const Tarot = () => {
   const cardDefaultValueArr = ['', '/src/img/site/tarot-card-cover.svg', ''];
   const [card1, setCard1] = useState([
@@ -28,21 +46,33 @@ const Tarot = () => {
   const [FnGetThreeCards] = useLazyQuery(QUERY_TAROTS_NAMESHORT);
   useEffect(() => {
     async function init() {
-      console.log(arrOf3Cards);
-
       const { data: threeCardsData } = await FnGetThreeCards({
         variables: { nameShorts: arrOf3Cards },
       });
       // console.log(threeCardsData.tarots);
+      // console.log(arrOf3Cards);
+
+      let fixedCardOrder = [];
 
       const cardsDetails = threeCardsData.tarots;
-      // console.log(cardsDetails);
+      //Because the second database calls sometimes returns a different order as the original array
+      // We need to loop thru the original array and grab each value to compare it with the second array(cardsDetails)
+      //If the value matches it will push the item to a new array. the loop will continue until each item in the secondary array is compared to the first item in the first array.
+      arrOf3Cards.forEach((value) => {
+        let found = false;
+        cardsDetails.filter((item) => {
+          if (!found && item.nameShort === value) {
+            fixedCardOrder.push(item);
+            found = true;
+            return false;
+          } else {
+            return true;
+          }
+        });
+      });
+      // console.log(arrOf3Cards, fixedCardOrder);
 
-      // cardsDetails.forEach((element, index, array) => {
-      //   console.log(element.name);
-      // });
-
-      promptChatGpt(1, 2, threeCardsData.tarots);
+      // promptChatGpt(1, 2, fixedCardOrder);
       // promptChatGpt();
     }
     init();
@@ -59,8 +89,6 @@ const Tarot = () => {
     console.log(arrOfSides);
     let [card1, card2, card3] = cardsDetails;
     console.log(card1, card2, card3);
-
-    console.log(``);
 
     //show correct meaning depending which side the card face (Upside or Reverse)
     const meaning = (value) => (value === 'U' ? 'meaningUp' : 'meaningRev');
@@ -90,7 +118,7 @@ const Tarot = () => {
     Base on these tarots cards meaning and details give the player a summarize it as a story and return the prophecy to the player.
     `;
 
-    console.log(prompt);
+    // console.log(prompt);
 
     // const result = await chatGptApi(prompt);
     // console.log(result.choices[0].text);
@@ -127,6 +155,7 @@ const Tarot = () => {
   function getRandomCard() {
     const allCardsArr = [...allCardsData.tarotAll];
 
+    //add number here
     const arryNum = [1, 25, 78];
 
     //sort takes a function and the sort is looking for either a positive or negative number
