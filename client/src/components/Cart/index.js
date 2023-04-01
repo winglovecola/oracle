@@ -75,21 +75,27 @@ const Cart = () => {
       <div className="close" onClick={toggleCart}>
         [close]
       </div>
-      <div className="flex flex-col text-center">
+      <div className="flex flex-col text-center h-full">
         <h2 className="text-2xl font-bold text-gray-900 border-b-2 border-grey-500 py-5">
           Shopping Cart
         </h2>
         {state.cart.length ? (
-          <div>
-            {state.cart.map((item) => (
-              <CartItem key={item._id} item={item} />
-            ))}
+          <div className="flex flex-col h-full">
+            <div class="">
+              {state.cart.map((item) => (
+                <CartItem key={item._id} item={item} />
+              ))}
+            </div>
 
-            <div className="flex space-between">
+            <div className="mt-auto">
               <strong>Total: ${calculateTotal()}</strong>
 
               {Auth.loggedIn() ? (
-                <button onClick={submitCheckout}>Checkout</button>
+                <button
+                  className="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  onClick={submitCheckout}>
+                  Checkout
+                </button>
               ) : (
                 <span>(log in to check out)</span>
               )}
