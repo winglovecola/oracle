@@ -5,7 +5,7 @@ import ProductList from '../components/ProductList';
 import CategoryMenu from '../components/CategoryMenu';
 import Cart from '../components/Cart';
 
-const Home = () => {
+const Store = () => {
   return (
     <main className="container mx-auto py-6 grow flex justify-center items-center">
       <section className="text-center flex flex-col mb-3">
@@ -34,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Store;
