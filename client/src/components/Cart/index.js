@@ -71,35 +71,39 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart bg-white p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll">
+    <div className="cart bg-fuchsia-50 p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll ">
       <div className="close" onClick={toggleCart}>
         [close]
       </div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
+      <div className="flex flex-col text-center">
+        <h2 className="text-2xl font-bold text-gray-900 border-b-2 border-grey-500 py-5">
+          Shopping Cart
+        </h2>
+        {state.cart.length ? (
+          <div>
+            {state.cart.map((item) => (
+              <CartItem key={item._id} item={item} />
+            ))}
 
-          <div className="flex space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+            <div className="flex space-between">
+              <strong>Total: ${calculateTotal()}</strong>
 
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
+              {Auth.loggedIn() ? (
+                <button onClick={submitCheckout}>Checkout</button>
+              ) : (
+                <span>(log in to check out)</span>
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
-      )}
+        ) : (
+          <h3>
+            <span role="img" aria-label="shocked">
+              😱
+            </span>
+            You haven't added anything to your cart yet!
+          </h3>
+        )}
+      </div>
     </div>
   );
 };
