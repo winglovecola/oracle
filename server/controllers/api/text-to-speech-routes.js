@@ -1,67 +1,103 @@
 const router = require('express').Router();
 const fs = require('fs');
 const util = require('util');
+const path = require('path');
 
 require('dotenv').config();
 
 
-router.get('/text-to-speech', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-  process.env.GOOGLE_APPLICATION_CREDENTIALS =  '../book-of-fortune-382018-883d7668cc42.json';
+  
+  
+    process.env.GOOGLE_APPLICATION_CREDENTIALS =  '../book-of-fortune-382018-883d7668cc42.json';
 
 
-  const textToSpeech = require('@google-cloud/text-to-speech');
 
-  'use strict';
-
-  /**
-   * Lists available voices for the specified language.
-   *
-   * @param {string} languageCode - The language code.
-   */
-  async function listVoices(languageCode) {
     const textToSpeech = require('@google-cloud/text-to-speech');
 
-    const client = new textToSpeech.TextToSpeechClient();
+    'use strict';
 
-    const [result] = await client.listVoices({languageCode});
-    const voices = result.voices;
+    /**
+     * Lists available voices for the specified language.
+     *
+     * @param {string} languageCode - The language code.
+     */
+    async function listVoices(languageCode) {
+      const textToSpeech = require('@google-cloud/text-to-speech');
 
-    voices.forEach((voice) => {
-      console.log(`${voice.name} (${voice.ssmlGender}): ${voice.languageCodes}`);
-    });
-  }
+      const client = new textToSpeech.TextToSpeechClient();
 
-  listVoices('en');
+      const [result] = await client.listVoices({languageCode});
+      const voices = result.voices;
+
+      voices.forEach((voice) => {
+        console.log(`${voice.name} (${voice.ssmlGender}): ${voice.languageCodes}`);
+      });
+    }
+
+    //listVoices('en');
 
 
-  /**
-   * Sythesizes sample text into an .mp3 file.
-   */
-  async function synthesize() {
+    /**
+     * Sythesizes sample text into an .mp3 file.
+     */
+    async function synthesize() {
+      
+      const client = new textToSpeech.TextToSpeechClient();
+
+
+      //const text = 'It\'s a destiny that we meet. What type of question you have in mind?';
+      
+      if (!req.body.question || !req.body.uid)
+      {
+        console.log ('question or uid is undefined')
+        return; //skip if no text input 
+      }
+
+      const text = req.body.question.trim ();
+      const uid = req.body.uid;
+      
+        
+      const request = {
+        input: {text: text},
+        voice: {name: 'en-US-Wavenet-C', languageCode: 'en-US', ssmlGender: 'FEMALE'},//en-US-Wavenet-C, en-US-News-L
+        audioConfig: {audioEncoding: 'MP3'},
+      };
+
+      const [response] = await client.synthesizeSpeech(request);
+      // Write the binary audio content to a local file
+      const writeFile = util.promisify(fs.writeFile);
+
+      //console.log ("test", text, req.body.uid)
+      const userTempUpload = `../../../client/public/src/temp/${uid}`;
+      const outputFolder = `${path.join(__dirname, userTempUpload)}`;
+
+      
+
+      const outputFilename = new Date().toLocaleDateString() + '.mp3';
+      const outputFile = `${outputFolder}\\${outputFilename}`;
+      
+
+
+      if (await !fs.existsSync(outputFolder)){
+        await fs.mkdirSync(outputFolder, { recursive: true });
+      }
     
-    const client = new textToSpeech.TextToSpeechClient();
+      console.log (outputFile)
+      await writeFile(outputFile, response.audioContent, 'binary');
 
-    const text = 'It\'s a destiny that we meet. What type of question you have in mind?';
 
-    const request = {
-      input: {text: text},
-      voice: {name: 'en-US-Wavenet-C', languageCode: 'en-US', ssmlGender: 'FEMALE'},//en-US-Wavenet-C, en-US-News-L
-      audioConfig: {audioEncoding: 'MP3'},
-    };
+      return `/src/temp/${uid}/${outputFilename}`;
+    }
 
-    const [response] = await client.synthesizeSpeech(request);
-    // Write the binary audio content to a local file
-    const writeFile = util.promisify(fs.writeFile);
-    await writeFile('output.mp3', response.audioContent, 'binary');
-    console.log('Audio content written to file: output.mp3');
-  }
+    const soundPath = await synthesize();
 
-  synthesize();
+    res.status(200).json(soundPath);
   
-} catch (err) {
-  res.json({ error: err });
-}
+  } catch (err) {
+    res.json({ error: err });
+  }
 });
 
 

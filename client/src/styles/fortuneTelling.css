@@ -1,10 +1,253 @@
+
+
 body {
 
   background-color: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  cursor: url('../../public/src/img/icons/sword.png'), pointer;
 }
 
-#oracle-div {
+#start-btn {
 
-  background-color: white;
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  background-color: black;
+  background-image: url('../../public/src/img/icons/explore.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
   text-align: center;
+  transform: translate(-50%, -50%);
+  color:white !important;
+  z-index: 102;
+  
+}
+
+#start-btn:hover {
+  cursor: pointer;
+  width: 160px;
+  height: 160px;
+  box-shadow: 0 0 25px 15px rgb(73, 191, 255, 0.7);
+}
+
+#start-btn .btn-label {
+  display: block;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%, -50%);
+  bottom: 5px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+
+#dungeon-div {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: 'hidden';
+}
+
+#dungeon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/src/img/bg/into-dungeon.jpg');
+  background-position: center;
+  box-sizing: border-box;
+}
+
+#oracle-palace {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/src/img/bg/oracle-palace.jpg');
+  background-position: center;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+#oracle {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  z-index: 99;
+  border-radius: 150px;
+  background-image: url('../../public/src/img/magic/giphy.gif');
+  background-repeat: 'no-repeat';
+  background-size: '100% 100%';
+  background-position: center;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
+}
+
+
+#oracle-questions {
+  display: none;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  min-width: 400px;
+  max-width: 800px;
+  min-height: 300px;
+  border-radius: 20px;
+  background-color: rgba(131, 201, 255, 0.75);
+  text-align: center;
+  color: black;
+  font-size: 30px;
+  font-family: 'Caveat', cursive;
+  padding: 20px;
+  z-index: 101;
+}
+
+#oracle-quetsion-div {
+
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.itemPicked {
+
+  background-color: rgba(222, 58, 255, 0.3) !important;
+}
+
+.playerAnswerSelect:hover {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+#my-quetsion-input {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.586);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+.cardNumDiv {
+
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.586); 
+  margin: 3px;
+}
+
+
+.cardNumDiv:hover {
+
+  background-color: rgba(222, 58, 255, 0.3); 
+  cursor: pointer;
+}
+
+
+/*User game menu*/
+#user-menu {
+
+  display: block;
+  position: absolute;
+  right: 400px;
+  bottom: 100px;
+  z-index: 103;
+}
+
+#hpbar {
+
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  width: 350px;
+  height: 50px;
+  background-repeat: 'no-repeat';
+  background-size: '100% 100%';
+  background-image: url('../../public/src/img/icons/hp.png');
+}
+
+#mpbar {
+
+  display: block;
+  position: absolute;
+  width: 350px;
+  height: 30px;
+  background-repeat: 'no-repeat';
+  background-size: '100% 100%';
+  background-image: url('../../public/src/img/icons/mp.png');
+}
+
+.status-bar img {
+
+  width: 100%;
+}
+
+/*swword shadow trail*/
+.trail { /* className for the trail elements */
+  position: absolute;
+  height: 20px; width: 20px;
+  border-radius: 3px;
+  background: rgb(110, 204, 255);
+  transform: rotateX(-45deg);
+  z-index: 100;
+
+}
+
+
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(5, 5);
+  }
+
+}
+
+
+@keyframes fadeout {
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .cardNumDiv {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
 }
