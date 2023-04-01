@@ -49,10 +49,12 @@ function App() {
       <Router>
         <div
           className="flex flex-col h-screen bg-slate-950 text-white p-6"
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(83,4,125,0.7) 0%, rgba(0,0,0,0.8) 100%),url(/src/img/site/tarot-table.jpg) center/cover no-repeat',
-          }}>
+          style={
+            {
+              // background:
+              //   'linear-gradient(180deg, rgba(83,4,125,0.7) 0%, rgba(0,0,0,0.8) 100%),url(/src/img/site/tarot-table.jpg) center/cover no-repeat',
+            }
+          }>
           <StoreProvider>
             <Nav />
             <Routes>
