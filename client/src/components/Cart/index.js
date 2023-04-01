@@ -63,7 +63,7 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed p-3" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
+        <span role="img" aria-label="shopping cart">
           <i className="fa-solid fa-cart-shopping text-black md:text-white"></i>
         </span>
       </div>
