@@ -54,7 +54,7 @@ const Tarot = () => {
       });
       console.log(userSelected3Cards, fixedCardOrder);
 
-      // promptChatGpt(1, 2, fixedCardOrder);
+      promptChatGpt(1, 2, fixedCardOrder);
       // promptChatGpt();
     }
     init();
@@ -100,7 +100,7 @@ const Tarot = () => {
     Base on these tarots cards meaning and details give the player a summarize it as a story and return the prophecy to the player.
     `;
 
-    // console.log(prompt);
+    console.log(prompt);
 
     // const result = await chatGptApi(prompt);
     // console.log(result.choices[0].text);
