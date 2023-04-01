@@ -49,7 +49,6 @@ function Login(props) {
                   Your email
                 </label>
                 <input
-                  placeholder="youremail@test.com"
                   name="email"
                   type="email"
                   id="email"
