@@ -37,16 +37,14 @@ function Login(props) {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign in to your account
             </h1>
-            <Link to="/signup" className="">
-              ← Go to Signup
-            </Link>
+
             <form
               onSubmit={handleFormSubmit}
               className="space-y-4 md:space-y-6"
               action="#">
               <div>
                 <label
-                  htmlfor="email"
+                  htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Your email
                 </label>
@@ -56,7 +54,7 @@ function Login(props) {
                   type="email"
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                  placeholder="name@company.com"
+                  placeholder="name@example.com"
                   required=""
                   onChange={handleChange}
                 />
@@ -96,7 +94,7 @@ function Login(props) {
                   </div>
                   <div className="ml-3 text-sm">
                     <label
-                      for="remember"
+                      htmlFor="remember"
                       className="text-gray-500 dark:text-gray-300">
                       Remember me
                     </label>
@@ -108,13 +106,13 @@ function Login(props) {
                 className="w-full text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                 Sign in
               </button>
-              <p className="text-sm font-light text-gray-500 ">
+              <p className="text-sm font-light text-gray-100 ">
                 Don’t have an account yet?{' '}
-                <a
-                  href="#"
-                  className="font-medium text-primary-600 hover:underline">
-                  Sign up
-                </a>
+                <Link
+                  to="/signup"
+                  className="font-medium text-primary-600 hover:underline block my-2">
+                  ← Go to Signup
+                </Link>
               </p>
             </form>
           </div>
