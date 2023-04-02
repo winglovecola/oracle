@@ -82,16 +82,22 @@ const Cart = () => {
           <span className="hidden">[close]</span>
         </i>
       </div>
-      <div className="flex flex-col text-center h-full">
+      <div className="flex flex-col text-center h-full bg-fuchsia-50">
         <h2 className="text-2xl font-bold text-gray-900 border-b border-grey-500 py-5">
           Shopping Cart
         </h2>
         {state.cart.length ? (
           <div className="flex flex-col h-full">
-            <div class="divide-y">
+            <div className="divide-y">
               {state.cart.map((item) => (
                 <CartItem key={item._id} item={item} />
               ))}
+            </div>
+            <div className="" onClick={toggleCart}>
+              <button className="p-2 text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-full  text-center">
+                <p className="text-xs">Add more items</p>
+                <span className="hidden">[close]</span>
+              </button>
             </div>
 
             <div className="mt-auto flex flex-col gap-4">

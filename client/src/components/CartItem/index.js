@@ -41,7 +41,7 @@ const CartItem = ({ item }) => {
           alt=""
         />
       </div>
-      <div class="grow flex-col mb-2">
+      <div className="grow flex-col mb-2">
         <div className="flex justify-between mb-1">
           <span className="font-bold text-slate-600 text-sm">{item.name}</span>
           <span className="font-bold text-slate-600 text-sm">
