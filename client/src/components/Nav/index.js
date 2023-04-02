@@ -9,7 +9,7 @@ function Nav() {
       return (
         <ul className="flex flex-col md:flex-row gap-3">
           <li className="px-1">
-            <Link to="/tarot" className="p-3">
+            <Link to="/fortuneTelling" className="p-3">
               Tarot
             </Link>
           </li>
@@ -34,7 +34,7 @@ function Nav() {
       return (
         <ul className="flex flex-col md:flex-row gap-3">
           <li className="px-1">
-            <Link to="/tarot" className="p-3">
+            <Link to="/fortuneTelling" className="p-3">
               Tarot
             </Link>
           </li>
@@ -52,8 +52,7 @@ function Nav() {
     }
   }
 
-
-/*   <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
+  /*   <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
   <Link to="/">
     <img
       className="max-w-full w-[250px]"
@@ -72,7 +71,6 @@ function Nav() {
 
   return (
     <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
-
       <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
         <Link to="/" className="flex">
           <img
@@ -89,13 +87,11 @@ function Nav() {
         {/* <span aria-readonly="true"> Oracle</span> */}
       </h1>
 
-
       <nav
         id="nav-menu"
-        className="bg-purple-900 flex items-center justify-center test">
+        className="bg-purple-900 flex items-center justify-center">
         {showNavigation()}
       </nav>
-
     </header>
   );
 }
