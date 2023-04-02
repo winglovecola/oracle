@@ -62,7 +62,7 @@ function Nav() {
             alt="Oracle Logo"
           />
           <img
-            className="max-w-full w-[55px] mx-auto rolate-ball"
+            className="max-w-full w-[55px] rolate-ball"
             src="/src/img/site/eye.svg"
             alt="Eye"
           />

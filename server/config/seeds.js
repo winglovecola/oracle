@@ -27,6 +27,46 @@ db.once('open', async () => {
       price: 1.99,
       quantity: 500,
     },
+    {
+      name: 'Cup Noodles',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
+    {
+      name: 'Chocolate Bar',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
+    {
+      name: 'Potion',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
+    {
+      name: 'Potion Red',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
+    {
+      name: 'Bubble Tea',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
   ]);
 
   console.log('products seeded');

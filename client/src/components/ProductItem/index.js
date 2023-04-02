@@ -34,10 +34,14 @@ function ProductItem(item) {
   };
 
   return (
-    <div className="card bg-white text-black px-1 py-1 rounded overflow-hidden shadow-lg basis-1/2 md:basis-1/3">
+    <div className="card bg-white text-black rounded overflow-hidden shadow-lg ">
       <Link to={`/products/${_id}`}>
-        <img alt={name} src={`/src/img/items/${image}`} />
-        <p>{name}</p>
+        <img
+          className="max-w-full"
+          alt={name}
+          src={`/src/img/items/${image}`}
+        />
+        <h6 className="text-xl">{name}</h6>
       </Link>
       <div>
         <div>
@@ -45,7 +49,11 @@ function ProductItem(item) {
         </div>
         <span>${price}</span>
       </div>
-      <button onClick={addToCart}>Add to cart</button>
+      <button
+        className="rounded-full bg-purple-900 text-white px-5 py-2 hover:bg-indigo-700 font-bold uppercase text-xs"
+        onClick={addToCart}>
+        Add to cart
+      </button>
     </div>
   );
 }
