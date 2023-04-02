@@ -79,6 +79,8 @@ db.once('open', async () => {
 
   console.log('products seeded');
 
+
+  
   await User.deleteMany();
 
   await User.create({
@@ -110,6 +112,10 @@ db.once('open', async () => {
   });
 
   console.log('users seeded');
+
+
+
+  await Tarot.deleteMany();
 
   const tarot = await Tarot.insertMany([
     {
