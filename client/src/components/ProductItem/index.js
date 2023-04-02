@@ -41,19 +41,26 @@ function ProductItem(item) {
           alt={name}
           src={`/src/img/items/${image}`}
         />
-        <h6 className="text-xl">{name}</h6>
       </Link>
-      <div>
-        <div>
-          {quantity} {pluralize('item', quantity)} in stock
+      <div className="p-5 flex flex-col gap-3">
+        <h6 className="text-2xl">{name}</h6>
+        <p className="text-sm">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+          molestiae
+        </p>
+        <div class="flex justify-between items-center mb-3">
+          <p className=" text-sm text-purple-900">
+            {quantity} {pluralize('item', quantity)} in stock
+          </p>
+          <p className="font-bold text-xl">${price}</p>
         </div>
-        <span>${price}</span>
+
+        <button
+          className="rounded-full bg-purple-900 text-white px-5 py-2 hover:bg-indigo-700 font-bold uppercase text-sm"
+          onClick={addToCart}>
+          Add to cart
+        </button>
       </div>
-      <button
-        className="rounded-full bg-purple-900 text-white px-5 py-2 hover:bg-indigo-700 font-bold uppercase text-xs"
-        onClick={addToCart}>
-        Add to cart
-      </button>
     </div>
   );
 }
