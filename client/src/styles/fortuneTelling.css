@@ -60,6 +60,7 @@ body {
   height: 100%;
   background-image: url('../../public/src/img/bg/into-dungeon.jpg');
   background-position: center;
+  background-size: 100% 100%;
   box-sizing: border-box;
 }
 
@@ -71,7 +72,7 @@ body {
   background-image: url('../../public/src/img/bg/oracle-palace.jpg');
   background-repeat: 'no-repeat';
   background-position: center;
-  background-size: '100%';
+  background-size: 100% 100%;
   z-index: 99;
   box-sizing: border-box;
 }
@@ -88,7 +89,7 @@ body {
   border-radius: 150px;
   background-image: url('../../public/src/img/magic/giphy.gif');
   background-repeat: 'no-repeat';
-  background-size: '100% 100%';
+  background-size: 100% 100%;
   background-position: center;
   -webkit-mask-image: linear-gradient(
     to bottom,
@@ -105,13 +106,16 @@ body {
 #oracle-questions {
   display: none;
   position: absolute;
+  margin-top: 100px;
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 95%;
+  height: 100%;
   min-width: 400px;
   max-width: 800px;
   min-height: 300px;
+  max-height: 600px;
   border-radius: 20px;
   background-color: rgba(131, 201, 255, 0.75);
   text-align: center;
@@ -119,7 +123,9 @@ body {
   font-size: 30px;
   font-family: 'Caveat', cursive;
   padding: 20px;
+  overflow-y: auto;
   z-index: 101;
+  
 }
 
 #oracle-question-div {
@@ -129,6 +135,15 @@ body {
   border-radius: 10px;
   font-size: 30px;
   margin-bottom: 30px;
+  
+}
+
+#oracle-prophecy {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  overflow-y: auto;
+  font-size: 24px;
 }
 
 #tarot-div {
@@ -162,7 +177,7 @@ body {
   cursor: pointer;
 }
 
-#my-quetsion-input {
+#my-question-input {
   width: 100%;
   border: 1px solid black;
   border-radius: 10px;
@@ -245,7 +260,18 @@ body {
   }
 }
 
+
+
+/*mobile player*/
+
 @media only screen and (max-width: 800px) {
+
+  #oracle-prophecy {
+
+    font-size: 20px;
+  }
+
+
   .cardNumDiv {
     width: 30px;
     height: 30px;
