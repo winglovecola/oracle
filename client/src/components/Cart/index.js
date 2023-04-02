@@ -63,9 +63,14 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed md:p-3" onClick={toggleCart}>
-        <span role="img" aria-label="shopping cart">
+        <img
+          className="max-w-full w-[30px] md:w-[53px]"
+          src="/src/img/icons/shoppingcart.png"
+          alt=""
+        />
+        {/* <span role="img" aria-label="shopping cart">
           <i className="fa-solid fa-cart-shopping text-black md:text-white"></i>
-        </span>
+        </span> */}
       </div>
     );
   }

@@ -35,10 +35,16 @@ function Nav() {
           <li className="">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
-              Logout
+              {/* Logout */}
+              <img
+                className="max-w-full w-[30px] md:w-[53px]"
+                src="/src/img/icons/logout.png"
+                alt=""
+              />
             </a>
           </li>
-          <li className="bg-fuchsia-50 md:bg-indigo-600 cart-li">
+          <li className="cart-li">
+            {/* bg-fuchsia-50 md:bg-indigo-600 */}
             <Cart />
           </li>
         </ul>
