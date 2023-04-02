@@ -47,7 +47,7 @@ function ProductList() {
     <div className="my-2">
       <h2 className="mb-4">Our Products</h2>
       {state.products.length ? (
-        <div className="grid-cols-1 md:grid-cols-3 grid gap-4 justify-center gap-6">
+        <div className="grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid justify-center gap-10">
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}

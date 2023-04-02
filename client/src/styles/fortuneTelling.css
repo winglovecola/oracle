@@ -1,14 +1,12 @@
 body {
-
   background-color: black;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   height: 100%;
   cursor: url('../../public/src/img/icons/sword.png'), pointer;
 }
 
 #start-btn {
-
   display: block;
   position: absolute;
   bottom: -20px;
@@ -23,9 +21,8 @@ body {
   height: 150px;
   text-align: center;
   transform: translate(-50%, -50%);
-  color:white !important;
+  color: white !important;
   z-index: 102;
-  
 }
 
 #start-btn:hover {
@@ -38,7 +35,7 @@ body {
 #start-btn .btn-label {
   display: block;
   position: absolute;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, -50%);
   bottom: 5px;
   text-align: center;
@@ -47,7 +44,6 @@ body {
   padding: 5px;
   border-radius: 8px;
 }
-
 
 #dungeon-div {
   display: block;
@@ -94,10 +90,17 @@ body {
   background-repeat: 'no-repeat';
   background-size: '100% 100%';
   background-position: center;
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6));
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.6)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.6)
+  );
 }
-
 
 #oracle-questions {
   display: none;
@@ -120,7 +123,6 @@ body {
 }
 
 #oracle-question-div {
-
   width: 100%;
   background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid black;
@@ -129,9 +131,7 @@ body {
   margin-bottom: 30px;
 }
 
-
 #tarot-div {
-
   display: none;
   position: absolute;
   top: 35%;
@@ -152,12 +152,8 @@ body {
 }
 
 .itemPicked {
-
   background-color: rgba(222, 58, 255, 0.3) !important;
 }
-
-
-
 
 .playerAnswerSelect:hover {
   border: 1px solid black;
@@ -176,29 +172,23 @@ body {
   margin-bottom: 10px;
 }
 
-
 .cardNumDiv {
-
   display: inline-block;
   width: 50px;
   height: 50px;
   border-radius: 10px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.586); 
+  background-color: rgba(255, 255, 255, 0.586);
   margin: 3px;
 }
 
-
 .cardNumDiv:hover {
-
-  background-color: rgba(222, 58, 255, 0.3); 
+  background-color: rgba(222, 58, 255, 0.3);
   cursor: pointer;
 }
 
-
 /*User game menu*/
 #user-menu {
-
   display: block;
   position: absolute;
   right: 400px;
@@ -207,41 +197,35 @@ body {
 }
 
 #hpbar {
-
   display: block;
   position: absolute;
   bottom: 50px;
   width: 350px;
   height: 30px;
-
 }
 
 #mpbar {
-
   display: block;
   position: absolute;
   width: 350px;
   height: 30px;
-
 }
 
 .status-bar img {
-
   width: 100%;
 }
 
 /*swword shadow trail*/
-.trail { /* className for the trail elements */
+.trail {
+  /* className for the trail elements */
   position: absolute;
-  height: 20px; width: 20px;
+  height: 20px;
+  width: 20px;
   border-radius: 3px;
   background: rgb(110, 204, 255);
   transform: rotateX(-45deg);
   z-index: 100;
-
 }
-
-
 
 @keyframes zoom-in {
   0% {
@@ -250,9 +234,7 @@ body {
   100% {
     transform: scale(5, 5);
   }
-
 }
-
 
 @keyframes fadeout {
   100% {
@@ -263,8 +245,6 @@ body {
   }
 }
 
-
-
 @media only screen and (max-width: 800px) {
   .cardNumDiv {
     width: 30px;
@@ -272,28 +252,21 @@ body {
     font-size: 20px;
   }
 
-
   #user-menu {
-
     display: block;
     position: absolute;
     right: 220px;
     bottom: 70px;
     z-index: 103;
   }
-  
 
   #hpbar {
-
     bottom: 30px;
     width: 200px;
     height: 15px;
-
   }
-  
-  #mpbar {
-  
 
+  #mpbar {
     width: 200px;
     height: 30px;
   }

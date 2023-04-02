@@ -34,22 +34,24 @@ function ProductItem(item) {
   };
 
   return (
-    <div className="card bg-white text-black rounded overflow-hidden shadow-lg ">
-      <Link to={`/products/${_id}`}>
+    <div className="card flex flex-col relative text-black rounded shadow-lg h-[26em] mb-6">
+      {/* <Link to={`/products/${_id}`}></Link> */}
+      <div className="relative">
         <img
-          className="max-w-full"
+          className="max-w-full w-[250px] left-[50%] -translate-x-[50%] absolute
+          "
           alt={name}
           src={`/src/img/items/${image}`}
         />
-      </Link>
-      <div className="p-5 flex flex-col gap-3">
-        <h6 className="text-2xl">{name}</h6>
+      </div>
+      <div className="px-5 pb-5 pt-[5.5em] mt-auto rounded flex flex-col gap-3 bg-fuchsia-200 hover:bg-fuchsia-300">
+        <h6 className="text-2xl text-fuchsia-900">{name}</h6>
         <p className="text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
           molestiae
         </p>
-        <div class="flex justify-between items-center mb-3">
-          <p className=" text-sm text-purple-900">
+        <div className="flex justify-between items-center mb-3 ">
+          <p className=" text-sm text-fuchsia-900">
             {quantity} {pluralize('item', quantity)} in stock
           </p>
           <p className="font-bold text-xl">${price}</p>
