@@ -7,25 +7,38 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex flex-wrap flex-row md:flex-col gap-3">
-          <li className="px-1">
-            <Link to="/" className="p-3">
-              Tarot
+        <ul className="flex flex-wrap flex-row gap-3">
+          <li className="">
+            <Link to="/">
+              {/* Tarot */}
+              <img
+                className="max-w-full"
+                src="/src/img/icons/shop.png"
+                alt=""
+              />
             </Link>
           </li>
-          <li className="px-1">
-            <Link to="/store">Store</Link>
+          <li className="">
+            <Link to="/store">
+              {/* Tarot */}
+              <img
+                className="max-w-full"
+                src="/src/img/icons/shop.png"
+                alt=""
+              />
+              {/* Store */}
+            </Link>
           </li>
           {/* <li className="px-1">
             <Link to="/orderHistory">Order History</Link>
           </li> */}
-          <li className="px-1">
+          <li className="">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
               Logout
             </a>
           </li>
-          <li className="px-1 bg-fuchsia-50 md:bg-indigo-600 cart-li">
+          <li className="bg-fuchsia-50 md:bg-indigo-600 cart-li">
             <Cart />
           </li>
         </ul>
@@ -33,19 +46,45 @@ function Nav() {
     } else {
       return (
         <ul className="flex flex-wrap gap-3">
-          <li className="px-1">
-            <Link to="/" className="p-3">
-              Tarot
+          <li className="">
+            <Link to="/">
+              {/* Tarot */}
+              <img
+                className="max-w-full w-[30px] md:w-[53px]"
+                src="/src/img/icons/tarot.png"
+                alt=""
+              />
             </Link>
           </li>
-          <li className="px-1">
-            <Link to="/store">Store</Link>
+          <li className="">
+            <Link to="/store">
+              {/* Store */}
+              <img
+                className="max-w-full w-[30px] md:w-[53px]"
+                src="/src/img/icons/shop.png"
+                alt=""
+              />
+            </Link>
           </li>
-          <li className="px-1">
-            <Link to="/signup">Signup</Link>
+          <li className="">
+            <Link to="/signup">
+              {/* Signup */}
+              <img
+                className="max-w-full w-[30px] md:w-[53px]"
+                src="/src/img/icons/signup.png"
+                alt=""
+              />
+            </Link>
           </li>
-          <li className="px-1">
-            <Link to="/login">Login</Link>
+          <li className="">
+            <Link to="/login">
+              <img
+                className="max-w-full w-[30px] md:w-[53px]"
+                src="/src/img/icons/login.png"
+                alt=""
+              />
+              {/* Login */}
+            </Link>
           </li>
         </ul>
       );
@@ -53,11 +92,11 @@ function Nav() {
   }
 
   return (
-    <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
+    <header className="flex flex-wrap justify-between px-1 mb-5">
       <Link to="/">
         <h1 className="flex" aria-label="Oracle Logo">
           <img
-            className="max-w-full mx-auto mb-3 md:mb-0 w-[100px] md:w-[250px]"
+            className="max-w-full mx-auto mb-0 w-[100px] md:w-[250px]"
             src="/src/img/site/oracle.svg"
             alt="Oracle Logo"
           />
