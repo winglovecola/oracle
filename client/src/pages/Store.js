@@ -8,7 +8,7 @@ import ProductList from '../components/ProductList';
 const Store = () => {
   return (
     <main className="container mx-auto py-6 grow flex justify-center items-center">
-      <section className="text-center flex flex-col mb-10 w-full">
+      <section className="text-center flex flex-col mb-4 w-full">
         {/* <CategoryMenu /> */}
         <ProductList />
         {/* <Cart /> */}
