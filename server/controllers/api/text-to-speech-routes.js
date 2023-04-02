@@ -71,13 +71,13 @@ router.post('/', async (req, res) => {
       const writeFile = util.promisify(fs.writeFile);
 
       //console.log ("test", text, req.body.uid)
-      const userTempUpload = `../../../client/public/src/temp/${uid}`;
+      const userTempUpload = `../../../client/public/src/temp/${uid}/`;
       const outputFolder = `${path.join(__dirname, userTempUpload)}`;
 
       
 
       const outputFilename = new Date().toJSON().replace (/:/g, "-") + '.mp3';
-      const outputFile = `${outputFolder}\\${outputFilename}`;
+      const outputFile = `${outputFolder}${outputFilename}`;
       
 
 
