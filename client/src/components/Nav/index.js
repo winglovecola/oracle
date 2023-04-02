@@ -90,6 +90,12 @@ function Nav() {
       </h1>
 
 
+      <nav
+        id="nav-menu"
+        className="bg-purple-900 flex items-center justify-center test">
+        {showNavigation()}
+      </nav>
+
     </header>
   );
 }
