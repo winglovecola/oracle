@@ -33,27 +33,37 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-wrap py-3">
       <div>
-        <img src={`/src/img/items/${item.image}`} alt="" />
+        <img
+          className="w-[70px] mr-4"
+          src={`/src/img/items/${item.image}`}
+          alt=""
+        />
       </div>
-      <div>
-        <div>
-          {item.name}, ${item.price}
+      <div class="grow flex-col mb-2">
+        <div className="flex justify-between mb-1">
+          <span className="font-bold text-slate-600 text-sm">{item.name}</span>
+          <span className="font-bold text-slate-600 text-sm">
+            ${item.price}
+          </span>
         </div>
-        <div>
-          <span>Qty:</span>
-          <input
-            type="number"
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChange}
-          />
+        <div className="flex justify-between">
+          <div>
+            <span className="font-bold text-slate-600 text-xs">Qty:</span>
+            <input
+              className="font-bold text-slate-600 text-sm"
+              type="number"
+              placeholder="1"
+              value={item.purchaseQuantity}
+              onChange={onChange}
+            />
+          </div>
           <span
-            role="img"
+            className="text-indigo-600 hover:text-red-500 text-sm font-bold"
             aria-label="trash"
             onClick={() => removeFromCart(item)}>
-            🗑️
+            Remove
           </span>
         </div>
       </div>

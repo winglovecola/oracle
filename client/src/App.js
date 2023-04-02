@@ -10,6 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
 import Tarot from './pages/Tarot';
+import Store from './pages/Store';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
@@ -22,7 +23,6 @@ import OrderHistory from './pages/OrderHistory';
 import ImageUpload from './pages/ImageUpload';
 import FortuneTelling from './pages/FortuneTelling';
 import ProphecyHistory from './pages/ProphecyHistory';
-
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -47,17 +47,20 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-   {/*      <div
-          className="flex flex-col h-screen bg-slate-950 text-white p-6"
-          style={{
-            backgroundImage:
-              'linear-gradient(180deg, rgba(83,4,125,0.8) 0%, rgba(0,0,0,0.6376925770308124) 100%),url(/src/img/site/tarot-table.jpg)',
-          }}> */}
+        <div
+          className="flex flex-col bg-slate-950 text-white p-6"
+          style={
+            {
+              // background:
+              //   'linear-gradient(180deg, rgba(83,4,125,0.7) 0%, rgba(0,0,0,0.8) 100%),url(/src/img/site/tarot-table.jpg) center/cover no-repeat',
+            }
+          }>
           <StoreProvider>
            
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tarot" element={<Tarot />} />
+              <Route path="/store" element={<Store />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/success" element={<Success />} />
@@ -70,7 +73,7 @@ function App() {
             </Routes>
             <Footer />
           </StoreProvider>
-       {/*  </div> */}
+        </div>
       </Router>
     </ApolloProvider>
   );

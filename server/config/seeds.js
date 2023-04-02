@@ -12,6 +12,54 @@ db.once('open', async () => {
 
   const products = await Product.insertMany([
     {
+      name: 'Cup Noodles',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'cup-noodles.png',
+      category: categories[0]._id,
+      price: 3.99,
+      quantity: 500,
+    },
+    {
+      name: 'Chocolate',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'chocolate.png',
+      category: categories[0]._id,
+      price: 5.99,
+      quantity: 500,
+    },
+    {
+      name: 'Bubble Tea',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'bubble-tea.png',
+      category: categories[0]._id,
+      price: 5.99,
+      quantity: 500,
+    },
+    {
+      name: 'Instant Noodles',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'instant-noodles.png',
+      category: categories[0]._id,
+      price: 5.99,
+      quantity: 500,
+    },
+    {
+      name: 'Potion',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
+    {
+      name: 'Potion Red',
+      description: 'Increase your luck and enjoy a yummy snack',
+      image: 'canned-coffee.jpg',
+      category: categories[0]._id,
+      price: 1.99,
+      quantity: 500,
+    },
+    {
       name: 'Energy Bar',
       description: 'Increase the limit of the fortune telling',
       image: 'cookie-tin.jpg',
@@ -53,14 +101,14 @@ db.once('open', async () => {
     firstName: 'John',
     lastName: 'L',
     email: 'johnlai@gmail.com',
-    password: 'test',
+    password: 'testtest',
   });
 
   await User.create({
     firstName: 'Thomas',
     lastName: 'T',
     email: 'tt@gmail.com',
-    password: 'test',
+    password: 'testtest',
   });
 
   console.log('users seeded');

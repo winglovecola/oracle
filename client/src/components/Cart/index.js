@@ -62,44 +62,54 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <span role="img" aria-label="trash">
-          🛒
+      <div className="cart-closed p-3" onClick={toggleCart}>
+        <span role="img" aria-label="shopping cart">
+          <i className="fa-solid fa-cart-shopping text-black md:text-white"></i>
         </span>
       </div>
     );
   }
 
   return (
-    <div className="cart">
+    <div className="cart min-w-full md:min-w-[45%] lg:min-w-[30%] bg-fuchsia-50 p-5 text-black text-left shadow-xl flex h-full flex-col overflow-y-scroll">
       <div className="close" onClick={toggleCart}>
-        [close]
+        <i className="fa-sharp fa-solid fa-x p-3">
+          <span className="hidden">[close]</span>
+        </i>
       </div>
-      <h2>Shopping Cart</h2>
-      {state.cart.length ? (
-        <div>
-          {state.cart.map((item) => (
-            <CartItem key={item._id} item={item} />
-          ))}
+      <div className="flex flex-col text-center h-full">
+        <h2 className="text-2xl font-bold text-gray-900 border-b border-grey-500 py-5">
+          Shopping Cart
+        </h2>
+        {state.cart.length ? (
+          <div className="flex flex-col h-full">
+            <div class="divide-y">
+              {state.cart.map((item) => (
+                <CartItem key={item._id} item={item} />
+              ))}
+            </div>
 
-          <div className="flex space-between">
-            <strong>Total: ${calculateTotal()}</strong>
+            <div className="mt-auto flex flex-col gap-4">
+              <strong className="flex justify-between w-100">
+                <span>Subtotal</span>
+                <span>${calculateTotal()}</span>
+              </strong>
 
-            {Auth.loggedIn() ? (
-              <button onClick={submitCheckout}>Checkout</button>
-            ) : (
-              <span>(log in to check out)</span>
-            )}
+              {Auth.loggedIn() ? (
+                <button
+                  className="w-full text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  onClick={submitCheckout}>
+                  Checkout
+                </button>
+              ) : (
+                <span>(log in to check out)</span>
+              )}
+            </div>
           </div>
-        </div>
-      ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
-      )}
+        ) : (
+          <h6 className="">There is nothing in the cart!</h6>
+        )}
+      </div>
     </div>
   );
 };
