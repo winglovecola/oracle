@@ -8,10 +8,11 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Home from './pages/Home';
-import Tarot from './pages/Tarot';
+// import Home from './pages/Home';
+// import Tarot from './pages/Tarot';
+import FortuneTelling from './pages/FortuneTelling';
 import Store from './pages/Store';
-import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -21,7 +22,6 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import ImageUpload from './pages/ImageUpload';
-import FortuneTelling from './pages/FortuneTelling';
 // import ProphecyHistory from './pages/ProphecyHistory';
 
 const httpLink = createHttpLink({
@@ -58,16 +58,14 @@ function App() {
           <StoreProvider>
             <Nav />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/tarot" element={<Tarot />} />
+              <Route path="/" element={<FortuneTelling />} />
               <Route path="/store" element={<Store />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/success" element={<Success />} />
               <Route path="/orderHistory" element={<OrderHistory />} />
-              <Route path="/products/:id" element={<Detail />} />
+              {/* <Route path="/products/:id" element={<Detail />} /> */}
               <Route path="/iupload" element={<ImageUpload />} />
-              <Route path="/fortuneTelling" element={<FortuneTelling />} />
               {/* <Route path="/prophecyHistory" element={<ProphecyHistory />} /> */}
               <Route path="*" element={<NoMatch />} />
             </Routes>

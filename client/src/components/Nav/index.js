@@ -7,7 +7,7 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex flex-col md:flex-row gap-3">
+        <ul className="flex flex-wrap md:flex-col md:flex-row gap-3">
           <li className="px-1">
             <Link to="/fortuneTelling" className="p-3">
               Tarot
@@ -16,9 +16,9 @@ function Nav() {
           <li className="px-1">
             <Link to="/store">Store</Link>
           </li>
-          <li className="px-1">
+          {/* <li className="px-1">
             <Link to="/orderHistory">Order History</Link>
-          </li>
+          </li> */}
           <li className="px-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
@@ -32,7 +32,7 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex flex-col md:flex-row gap-3">
+        <ul className="flex flex-wrap md:flex-col md:flex-row gap-3">
           <li className="px-1">
             <Link to="/fortuneTelling" className="p-3">
               Tarot
@@ -71,25 +71,22 @@ function Nav() {
 
   return (
     <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
-      <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
-        <Link to="/" className="flex">
+      <Link to="/">
+        <h1 className="" aria-label="Oracle Logo">
           <img
-            className="max-w-full w-[250px] mr-4"
+            className="max-w-full mx-auto w-[100px] md:w-[250px]"
             src="/src/img/site/oracle.svg"
             alt="Oracle Logo"
           />
           <img
-            className="max-w-full w-[55px] rolate-ball"
+            className="max-w-full hidden ml-5  md:block w-[55px] rolate-ball"
             src="/src/img/site/eye.svg"
             alt="Eye"
           />
-        </Link>
-        {/* <span aria-readonly="true"> Oracle</span> */}
-      </h1>
+        </h1>
+      </Link>
 
-      <nav
-        id="nav-menu"
-        className="bg-purple-900 flex items-center justify-center">
+      <nav id="nav-menu" className="flex items-center justify-center">
         {showNavigation()}
       </nav>
     </header>
