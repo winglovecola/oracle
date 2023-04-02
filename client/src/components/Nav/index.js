@@ -9,7 +9,7 @@ function Nav() {
       return (
         <ul className="flex flex-wrap flex-row md:flex-col gap-3">
           <li className="px-1">
-            <Link to="/fortuneTelling" className="p-3">
+            <Link to="/" className="p-3">
               Tarot
             </Link>
           </li>
@@ -32,9 +32,9 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex flex-wrap md:flex-col md:flex-row gap-3">
+        <ul className="flex flex-wrap gap-3">
           <li className="px-1">
-            <Link to="/fortuneTelling" className="p-3">
+            <Link to="/" className="p-3">
               Tarot
             </Link>
           </li>
