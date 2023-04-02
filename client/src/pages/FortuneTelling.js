@@ -82,11 +82,11 @@ function FuntuneTelling() {
 
       if (event.key === 'Enter') {
         
-        //console.log('User pressed: ', event.key, document.getElementById("my-quetsion-input").value);
+        //console.log('User pressed: ', event.key, document.getElementById("my-question-input").value);
         event.preventDefault();
         
-        question3Setup (document.getElementById("my-quetsion-input").value);
-        document.getElementById("my-quetsion-input").disabled = true;
+        question3Setup (document.getElementById("my-question-input").value);
+        document.getElementById("my-question-input").disabled = true;
 
       
       }
@@ -148,7 +148,7 @@ function FuntuneTelling() {
       const qSound2 = document.getElementById("au-question2");
       qSound2.play();
 
-      addAnswerDiv (<div id="answer2-div"><input id="my-quetsion-input" name="my-question-input" type="input" placeholder="Input your question and hit ENTER" autoComplete="off"/></div>);
+      addAnswerDiv (<div id="answer2-div"><input id="my-question-input" name="my-question-input" type="input" placeholder="Input your question and hit ENTER" autoComplete="off"/></div>);
 
 
       questionNum = 2;
@@ -216,7 +216,7 @@ function FuntuneTelling() {
       myQuestion = answer;
       setOracleQuestion ('From 1 to 78, tell me the 3 numbers that first came to your mind.');
 
-      document.getElementById("my-quetsion-input").value = myQuestion;
+      document.getElementById("my-question-input").value = myQuestion;
       
       const qSound3 = document.getElementById("au-question3");
       qSound3.play();
