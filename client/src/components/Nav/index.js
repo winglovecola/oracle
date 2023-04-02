@@ -42,24 +42,27 @@ function Nav() {
     }
   }
 
+
+/*   <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
+  <Link to="/">
+    <img
+      className="max-w-full w-[250px]"
+      src="/src/img/site/oracle.svg"
+      alt="Oracle Logo"
+    />
+  </Link>
+  {}
+</h1>
+
+<nav
+  id="nav-menu"
+  className="bg-purple-900 flex items-center justify-center">
+  {showNavigation()}
+</nav> */
+
   return (
     <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
-      <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
-        <Link to="/">
-          <img
-            className="max-w-full w-[250px]"
-            src="/src/img/site/oracle.svg"
-            alt="Oracle Logo"
-          />
-        </Link>
-        {/* <span aria-readonly="true"> Oracle</span> */}
-      </h1>
 
-      <nav
-        id="nav-menu"
-        className="bg-purple-900 flex items-center justify-center">
-        {showNavigation()}
-      </nav>
     </header>
   );
 }

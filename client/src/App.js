@@ -54,7 +54,7 @@ function App() {
               'linear-gradient(180deg, rgba(83,4,125,0.8) 0%, rgba(0,0,0,0.6376925770308124) 100%),url(/src/img/site/tarot-table.jpg)',
           }}> */}
           <StoreProvider>
-            <Nav />
+           
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tarot" element={<Tarot />} />
