@@ -48,6 +48,17 @@ export const QUERY_CATEGORIES = gql`
   }
 `;
 
+export const QUERY_PROPHECY = gql `
+{
+  prophecyHistories {
+    cards
+    cardPosition
+    resultsAI
+    user
+  }
+}
+`;
+
 export const QUERY_USER = gql`
   {
     user {
