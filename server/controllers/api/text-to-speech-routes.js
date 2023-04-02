@@ -3,15 +3,15 @@ const fs = require('fs');
 const util = require('util');
 const path = require('path');
 
-if (process.env.NODE_ENV !== 'production')
-  require('dotenv').config();
+
+require('dotenv').config();
 
 
 router.post('/', async (req, res) => {
   try {
   
-    if (process.env.NODE_ENV !== 'production')
-      process.env.GOOGLE_APPLICATION_CREDENTIALS =  '../book-of-fortune-382018-883d7668cc42.json';
+
+    process.env.GOOGLE_APPLICATION_CREDENTIALS =  'book-of-fortune-382018-883d7668cc42.json';
 
 
 
