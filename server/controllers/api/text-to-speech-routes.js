@@ -49,13 +49,13 @@ router.post('/', async (req, res) => {
 
       //const text = 'It\'s a destiny that we meet. What type of question you have in mind?';
       
-      if (!req.body.question || !req.body.uid)
+      if (!req.body.speech || !req.body.uid)
       {
-        console.log ('question or uid is undefined')
+        console.log ('speech or uid is undefined')
         return; //skip if no text input 
       }
 
-      const text = req.body.question.trim ();
+      const text = req.body.speech.trim ();
       const uid = req.body.uid;
       
         
@@ -75,7 +75,7 @@ router.post('/', async (req, res) => {
 
       
 
-      const outputFilename = new Date().toLocaleDateString() + '.mp3';
+      const outputFilename = new Date().toJSON().replace (/:/g, "-") + '.mp3';
       const outputFile = `${outputFolder}\\${outputFilename}`;
       
 
@@ -84,8 +84,10 @@ router.post('/', async (req, res) => {
         await fs.mkdirSync(outputFolder, { recursive: true });
       }
     
-      console.log (outputFile)
-      await writeFile(outputFile, response.audioContent, 'binary');
+      //console.log (outputFile)
+      
+      if (await !fs.existsSync(outputFile))
+        await writeFile(outputFile, response.audioContent, 'binary');
 
 
       return `/src/temp/${uid}/${outputFilename}`;
@@ -96,7 +98,7 @@ router.post('/', async (req, res) => {
     res.status(200).json(soundPath);
   
   } catch (err) {
-    res.json({ error: err });
+    res.status(400).json({ error: err });
   }
 });
 
