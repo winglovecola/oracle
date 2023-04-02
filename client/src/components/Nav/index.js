@@ -7,7 +7,7 @@ function Nav() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex flex-wrap md:flex-col md:flex-row gap-3">
+        <ul className="flex flex-wrap flex-row md:flex-col gap-3">
           <li className="px-1">
             <Link to="/fortuneTelling" className="p-3">
               Tarot
@@ -52,29 +52,12 @@ function Nav() {
     }
   }
 
-  /*   <h1 className="mb-5 md:mb-0" aria-label="Oracle Logo">
-  <Link to="/">
-    <img
-      className="max-w-full w-[250px]"
-      src="/src/img/site/oracle.svg"
-      alt="Oracle Logo"
-    />
-  </Link>
-  {}
-</h1>
-
-<nav
-  id="nav-menu"
-  className="bg-purple-900 flex items-center justify-center">
-  {showNavigation()}
-</nav> */
-
   return (
     <header className="flex flex-col md:flex-row justify-between px-1 mb-5">
       <Link to="/">
-        <h1 className="" aria-label="Oracle Logo">
+        <h1 className="flex" aria-label="Oracle Logo">
           <img
-            className="max-w-full mx-auto w-[100px] md:w-[250px]"
+            className="max-w-full mx-auto mb-3 md:mb-0 w-[100px] md:w-[250px]"
             src="/src/img/site/oracle.svg"
             alt="Oracle Logo"
           />
@@ -86,7 +69,7 @@ function Nav() {
         </h1>
       </Link>
 
-      <nav id="nav-menu" className="flex items-center justify-center">
+      <nav id="nav-menu" className="flex justify-center items-center">
         {showNavigation()}
       </nav>
     </header>
