@@ -92,6 +92,10 @@ function Nav() {
               {/* Login */}
             </Link>
           </li>
+          <li className="cart-li">
+            {/* bg-fuchsia-50 md:bg-indigo-600 */}
+            <Cart />
+          </li>
         </ul>
       );
     }
