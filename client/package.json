@@ -14,7 +14,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "words-to-numbers": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.0",
-    "sass": "^1.59.3"
+    "sass": "^1.59.3",
+    "tailwindcss": "^3.3.0"
   }
 }
