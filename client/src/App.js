@@ -56,7 +56,7 @@ function App() {
             }
           }>
           <StoreProvider>
-            <Nav />
+           
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tarot" element={<Tarot />} />
