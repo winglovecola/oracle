@@ -12,8 +12,8 @@ function Nav() {
             <Link to="/">
               {/* Tarot */}
               <img
-                className="max-w-full"
-                src="/src/img/icons/shop.png"
+                className="max-w-full w-[30px] md:w-[53px]"
+                src="/src/img/icons/tarot.png"
                 alt=""
               />
             </Link>
@@ -22,7 +22,7 @@ function Nav() {
             <Link to="/store">
               {/* Tarot */}
               <img
-                className="max-w-full"
+                className="max-w-full w-[30px] md:w-[53px]"
                 src="/src/img/icons/shop.png"
                 alt=""
               />
