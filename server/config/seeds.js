@@ -78,8 +78,7 @@ db.once('open', async () => {
   ]);
 
   console.log('products seeded');
-
-<<<<<<< HEAD
+/*
   await ProphecyHistory.create({
     cards: 'ar01 ar02 ar03',
     cardPosition: 'R U R',
@@ -96,11 +95,9 @@ db.once('open', async () => {
   });
 
   console.log("ProphecyHistory seeded");
-
-=======
+*/
 
   
->>>>>>> main
   await User.deleteMany();
 
   await User.create({
