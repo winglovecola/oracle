@@ -1,9 +1,15 @@
 body {
+
+  cursor: url('../../public/src/img/icons/sword.png'), pointer;
+}
+
+#main-game-div {
   background-color: black;
-  /* position: fixed; */
+  position: fixed;
+  left:0px;
+  top: 0px; 
   width: 100%;
   height: 100%;
-  cursor: url('../../public/src/img/icons/sword.png'), pointer;
 }
 
 #start-btn {

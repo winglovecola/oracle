@@ -745,7 +745,7 @@ function FuntuneTelling() {
   return (
     
     
-    <div>
+    <main id="main-game-div">
       <div id="dungeon-div"><div id="dungeon"></div></div>
       <div id="oracle-palace"><div id="oracle"></div></div>
 
@@ -833,7 +833,7 @@ function FuntuneTelling() {
         <section id="oracle-prophecy">{oracleProphecy}</section>
       </div>
       
-    </div>
+    </main>
   );
   //dangerouslySetInnerHTML={{__html: answer}}
 
