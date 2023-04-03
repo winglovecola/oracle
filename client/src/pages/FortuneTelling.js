@@ -245,7 +245,8 @@ function FuntuneTelling() {
 
     document.getElementById('dungeon-div').style.animation = "zoom-in 20s ease infinite";
     document.getElementById('start-btn').style.display = "none";
-
+    
+    document.getElementById('oracle-palace').style.display = "block"; //make the bottom layer of the background show
     
     music.play();
     auFootstep.play();
@@ -346,6 +347,10 @@ function FuntuneTelling() {
 
   function oracleListen (keywords = [], options = {interimResults: false, maxAlternatives: 1, continuous: true})
   {
+    if (tarotCardTellingStarted)
+      return; //cancel the voice recognition once the fortune telling started
+    
+    
     console.log ("oracle listening");
     recAnswerInterim = "";
     recAnswer = "";
