@@ -63,21 +63,18 @@ const Cart = () => {
   if (!state.cartOpen) {
     return (
       <div className="cart-closed" onClick={toggleCart}>
-        <div class="group flex relative">
+        <div className="group flex relative">
           <img
             className="max-w-full w-[30px] md:w-[53px]"
             src="/src/img/icons/shoppingcart.png"
             alt="shopping cart"
           />
           <span
-            class="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+            className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
     -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
             Shopping Cart
           </span>
         </div>
-        {/* <span role="img" aria-label="shopping cart">
-          <i className="fa-solid fa-cart-shopping text-black md:text-white"></i>
-        </span> */}
       </div>
     );
   }
