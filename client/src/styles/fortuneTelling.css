@@ -268,7 +268,7 @@ body {
 @media only screen and (max-width: 800px) {
   #oracle-questions {
     margin-top: 100px;
-    overflow-x: scroll;
+    overflow-y: scroll;
   }
   
   #oracle-prophecy {
