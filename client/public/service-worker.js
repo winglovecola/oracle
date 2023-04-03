@@ -1,29 +1,30 @@
 /* eslint-disable no-restricted-globals */
-import { precacheAndRoute } from 'workbox-precaching';
-import { registerRoute, NavigationRoute } from 'workbox-routing';
-import { CacheFirst, NetworkFirst } from 'workbox-strategies';
-import { ExpirationPlugin } from 'workbox-expiration';
+const CACHE_NAME = 'oracle-cache-v1';
+const urlsToCache = [
+  '/',
+  '/index.html',
+  '/logo192.png',
+  '/logo512.png'
+];
 
-precacheAndRoute(self.__WB_MANIFEST);
-
-registerRoute(
-  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
-  new CacheFirst({
-    cacheName: 'image-cache',
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 20,
-        maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
-      }),
-    ],
-  })
-);
-
-const navigationRoute = new NavigationRoute(async ({ event }) => {
-  const { request } = event;
-  const defaultUrl = '/';
-  const response = await caches.match(request);
-  return response || fetch(defaultUrl);
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+      })
+  );
 });
 
-registerRoute(navigationRoute);
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => {
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      })
+  );
+});
