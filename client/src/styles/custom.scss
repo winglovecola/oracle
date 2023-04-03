@@ -6,7 +6,9 @@
     li:not(.cart-li) {
       // padding: 12px;
       &:hover {
-        background-color: #4a044e;
+        img {
+          box-shadow: 5px 5px 31px 5px rgb(228, 167, 221);
+        }
       }
     }
   }
