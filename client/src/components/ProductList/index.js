@@ -45,7 +45,7 @@ function ProductList() {
 
   return (
     <div className="my-2">
-      <h2 className="mb-12">The Offerings</h2>
+      <h2 className="mb-12 text-3xl font-bold">The Offerings</h2>
       {state.products.length ? (
         <div className="grid-cols-1 md:grid-cols-3 lg:grid-cols-4 grid justify-center gap-10">
           {filterProducts().map((product) => (

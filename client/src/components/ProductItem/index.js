@@ -45,13 +45,13 @@ function ProductItem(item) {
         />
       </div>
       <div className="px-5 pb-5 pt-[5.5em] mt-auto rounded flex flex-col gap-3 bg-fuchsia-200 hover:bg-fuchsia-300">
-        <h6 className="text-2xl text-fuchsia-900">{name}</h6>
+        <h6 className="text-2xl font-bold text-fuchsia-900">{name}</h6>
         <p className="text-sm">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
           molestiae
         </p>
         <div className="flex justify-between items-center mb-3 ">
-          <p className=" text-sm text-fuchsia-900">
+          <p className="text-sm text-fuchsia-900">
             {quantity} {pluralize('item', quantity)} in stock
           </p>
           <p className="font-bold text-xl">${price}</p>
