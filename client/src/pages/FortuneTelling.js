@@ -245,7 +245,7 @@ function FuntuneTelling() {
 
     document.getElementById('dungeon-div').style.animation = "zoom-in 20s ease infinite";
     document.getElementById('start-btn').style.display = "none";
-    
+
     document.getElementById('oracle-palace').style.display = "block"; //make the bottom layer of the background show
     
     music.play();
@@ -412,7 +412,14 @@ function FuntuneTelling() {
         {
           if (recConfidence > 0.6)
           {
-            question3Setup (recAnswer);
+            if (recAnswer && recAnswer.trim ().length > 0)
+              question3Setup (recAnswer);
+            else
+              oracleListen ([]);
+          }
+          else
+          {
+            oracleListen ([]);
           }
         }
         else if (questionNum === 3)
