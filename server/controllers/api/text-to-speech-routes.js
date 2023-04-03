@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
   try {
   
 
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'book-of-fortune-382018-883d7668cc42.json');
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = path.join(__dirname, 'google-text-to-speech.json');
 
 
 
