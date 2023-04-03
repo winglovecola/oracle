@@ -88,7 +88,7 @@ const Cart = () => {
       </div>
       <div className="flex flex-col text-center h-full bg-fuchsia-50">
         <h2 className="text-2xl font-bold text-gray-900 border-b border-grey-500 py-5">
-          Shopping Cart
+          Offerings Basket
         </h2>
         {state.cart.length ? (
           <div className="flex flex-col h-full">
