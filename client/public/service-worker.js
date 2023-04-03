@@ -1,50 +1,29 @@
-import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate, CacheFirst } from 'workbox-strategies';
+/* eslint-disable no-restricted-globals */
 import { precacheAndRoute } from 'workbox-precaching';
-import { CacheableResponsePlugin } from 'workbox-cacheable-response';
-
-// Import the expiration plugin
+import { registerRoute, NavigationRoute } from 'workbox-routing';
+import { CacheFirst, NetworkFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 
-//precacheAndRoute(self.__WB_MANIFEST);
-
-const cacheName = 'static-resources';
-const matchCallback = ({ request }) => {
-  //console.log(request);
-  return (
-    // CSS
-    request.destination === 'style' ||
-    // JavaScript
-    request.destination === 'script'
-  );
-};
+precacheAndRoute(self.__WB_MANIFEST);
 
 registerRoute(
-  matchCallback,
-  new StaleWhileRevalidate({
-    cacheName,
-    plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
-    ],
-  })
-);
-
-// Register route for caching images
-// The cache first strategy is often the best choice for images because it saves bandwidth and improves performance.
-registerRoute(
-  ({ request }) => request.destination === 'image',
+  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'),
   new CacheFirst({
-    cacheName: 'my-image-cache',
+    cacheName: 'image-cache',
     plugins: [
-      new CacheableResponsePlugin({
-        statuses: [0, 200],
-      }),
       new ExpirationPlugin({
-        maxEntries: 60,
-        maxAgeSeconds: 30 * 24 * 60 * 60, // 30 Days
+        maxEntries: 20,
+        maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
       }),
     ],
   })
 );
+
+const navigationRoute = new NavigationRoute(async ({ event }) => {
+  const { request } = event;
+  const defaultUrl = '/';
+  const response = await caches.match(request);
+  return response || fetch(defaultUrl);
+});
+
+registerRoute(navigationRoute);

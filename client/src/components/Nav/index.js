@@ -135,7 +135,7 @@ function Nav() {
    
             {/* Install */}
             <div className="group flex relative">
-              <div class="installBtn" id="buttonInstall" role="button">Install!</div>
+              <div className="installBtn" id="buttonInstall" role="button">Install!</div>
             </div>
       
           </li>

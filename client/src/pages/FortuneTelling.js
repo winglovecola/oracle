@@ -224,7 +224,7 @@ function FuntuneTelling() {
       let cardDivObj = [];
       for (let i = 1; i <= 78; i++) {
         
-        cardDivObj.push (<div id={"cardnum" + i} className="cardNumDiv" onClick={() => {
+        cardDivObj.push (<div id={"cardnum" + i} key={i} className="cardNumDiv" onClick={() => {
           pickCardNum (i);
          }}>{i}</div>)
       }
