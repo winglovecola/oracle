@@ -10,23 +10,36 @@ function Nav() {
         <ul className="flex flex-wrap flex-row gap-3">
           <li className="">
             <Link to="/">
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/tarot.png"
+                  alt="Tarot Game"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Tarot
+                </span>
+              </div>
               {/* Tarot */}
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/tarot.png"
-                alt=""
-              />
             </Link>
           </li>
           <li className="">
             <Link to="/store">
-              {/* Tarot */}
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/shop.png"
-                alt=""
-              />
               {/* Store */}
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/shop.png"
+                  alt="Store"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Shop
+                </span>
+              </div>
             </Link>
           </li>
           {/* <li className="px-1">
@@ -35,12 +48,19 @@ function Nav() {
           <li className="">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/logout.png"
+                  alt="Logout"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Logout
+                </span>
+              </div>
               {/* Logout */}
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/logout.png"
-                alt=""
-              />
             </a>
           </li>
           <li className="cart-li">
@@ -55,42 +75,76 @@ function Nav() {
           <li className="">
             <Link to="/">
               {/* Tarot */}
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/tarot.png"
-                alt=""
-              />
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/tarot.png"
+                  alt="Tarot Game"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Tarot
+                </span>
+              </div>
             </Link>
           </li>
           <li className="">
             <Link to="/store">
               {/* Store */}
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/shop.png"
-                alt=""
-              />
+
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/shop.png"
+                  alt="Shop"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Shop
+                </span>
+              </div>
             </Link>
           </li>
           <li className="">
             <Link to="/signup">
               {/* Signup */}
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/signup.png"
-                alt=""
-              />
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/signup.png"
+                  alt="Sign Up"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Sign Up
+                </span>
+              </div>
             </Link>
           </li>
           <li className="">
             <Link to="/login">
-              <img
-                className="max-w-full w-[30px] md:w-[53px]"
-                src="/src/img/icons/login.png"
-                alt=""
-              />
+              <div className="group flex relative">
+                <img
+                  className="max-w-full w-[30px] md:w-[53px]"
+                  src="/src/img/icons/login.png"
+                  alt="Login"
+                />
+                <span
+                  className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+                  Login
+                </span>
+              </div>
+
               {/* Login */}
             </Link>
+          </li>
+          <li className="cart-li">
+            {/* bg-fuchsia-50 md:bg-indigo-600 */}
+            <Cart />
           </li>
         </ul>
       );

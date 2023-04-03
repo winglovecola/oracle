@@ -42,7 +42,7 @@ function Signup(props) {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  className="block mb-2 text-sm font-medium text-white">
                   First Name
                 </label>
                 <input
@@ -58,7 +58,7 @@ function Signup(props) {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block my-2 text-sm font-medium text-gray-900 dark:text-white">
+                  className="block my-2 text-sm font-medium text-white">
                   Last Name
                 </label>
                 <input
@@ -75,7 +75,7 @@ function Signup(props) {
               <div>
                 <label
                   htmlFor="email"
-                  className="block my-2 text-sm font-medium text-gray-900 dark:text-white">
+                  className="block my-2 text-sm font-medium text-white">
                   Your email
                 </label>
                 <input
@@ -91,7 +91,7 @@ function Signup(props) {
               <div>
                 <label
                   htmlFor="pwd"
-                  className="block my-2 text-sm font-medium text-gray-900 dark:text-white">
+                  className="block my-2 text-sm font-medium text-white">
                   Password
                 </label>
                 <input

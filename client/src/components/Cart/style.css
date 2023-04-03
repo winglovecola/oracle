@@ -40,13 +40,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .cart {
+  /* .cart {
     position: relative;
     max-width: 100%;
     max-height: auto;
     box-shadow: none;
     background-color: inherit;
-  }
+  } */
 
   .cart-closed {
     position: relative;

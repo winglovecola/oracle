@@ -62,15 +62,19 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed md:p-3" onClick={toggleCart}>
-        <img
-          className="max-w-full w-[30px] md:w-[53px]"
-          src="/src/img/icons/shoppingcart.png"
-          alt=""
-        />
-        {/* <span role="img" aria-label="shopping cart">
-          <i className="fa-solid fa-cart-shopping text-black md:text-white"></i>
-        </span> */}
+      <div className="cart-closed" onClick={toggleCart}>
+        <div className="group flex relative">
+          <img
+            className="max-w-full w-[30px] md:w-[53px]"
+            src="/src/img/icons/shoppingcart.png"
+            alt="shopping cart"
+          />
+          <span
+            className="group-hover:opacity-100 transition-opacity bg-gray-800 px-1 text-xs text-gray-100 rounded-md absolute left-1/2
+    -translate-x-1/2 translate-y-full opacity-0 m-4 mx-auto">
+            Shopping Cart
+          </span>
+        </div>
       </div>
     );
   }
@@ -82,16 +86,22 @@ const Cart = () => {
           <span className="hidden">[close]</span>
         </i>
       </div>
-      <div className="flex flex-col text-center h-full">
+      <div className="flex flex-col text-center h-full bg-fuchsia-50">
         <h2 className="text-2xl font-bold text-gray-900 border-b border-grey-500 py-5">
           Shopping Cart
         </h2>
         {state.cart.length ? (
           <div className="flex flex-col h-full">
-            <div class="divide-y">
+            <div className="divide-y">
               {state.cart.map((item) => (
                 <CartItem key={item._id} item={item} />
               ))}
+            </div>
+            <div className="" onClick={toggleCart}>
+              <button className="p-2 text-white bg-indigo-600 hover:bg-indigo-700 font-medium rounded-full  text-center">
+                <p className="text-xs">Add more items</p>
+                <span className="hidden">[close]</span>
+              </button>
             </div>
 
             <div className="mt-auto flex flex-col gap-4">
