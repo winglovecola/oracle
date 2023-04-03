@@ -20,32 +20,33 @@ db.once('open', async () => {
     {
       name: 'Cup Noodles',
       description:
-        'The oracle loves cup noodles, if you want more positive readings, feed the oracle more noodles.',
+        'The Oracle loves cup noodles, if you want more positive readings, feed the Oracle more noodles.',
       image: 'cup-noodles.png',
       category: categories[0]._id,
       price: 3.99,
-      quantity: 500,
+      quantity: 300,
     },
     {
       name: 'Chocolate',
       description:
-        'No one can say no to chocolate, if you want to be on the good side of the Oracle, feed it to the oracle.',
+        'You better feed the Oracle some Chocolate if you want to be on the good side of the Oracle.',
       image: 'chocolate.png',
       category: categories[0]._id,
       price: 5.99,
-      quantity: 500,
+      quantity: 250,
     },
     {
       name: 'Bubble Tea',
-      description: 'Increase your luck send the oracle a bubble tea',
+      description: 'Increase your luck, send the Oracle a bubble tea, now!',
       image: 'bubble-tea.png',
       category: categories[0]._id,
       price: 6.99,
-      quantity: 300,
+      quantity: 120,
     },
     {
       name: 'Instant Noodles',
-      description: 'Instant noodles are the oracle favorite',
+      description:
+        'Instant noodles are the Oracle favorite, send the Oracle some!',
       image: 'instant-noodles.png',
       category: categories[0]._id,
       price: 5.99,
@@ -53,7 +54,7 @@ db.once('open', async () => {
     },
     {
       name: 'Coca Cola',
-      description: 'We all know the oracle loves Coca Cola',
+      description: 'We all know the Oracle loves Coca Cola',
       image: 'coca-cola.png',
       category: categories[0]._id,
       price: 1.99,
@@ -61,7 +62,7 @@ db.once('open', async () => {
     },
     {
       name: 'Beer',
-      description: 'Oracle loves beer, send the oracle a beer',
+      description: 'Oracle loves beer, send the Oracle a beer',
       image: 'beer.png',
       category: categories[0]._id,
       price: 9.99,
@@ -73,7 +74,7 @@ db.once('open', async () => {
       image: 'pizza.png',
       category: categories[0]._id,
       price: 2.99,
-      quantity: 700,
+      quantity: 325,
     },
     {
       name: 'Fortune Cookie',
@@ -81,7 +82,7 @@ db.once('open', async () => {
       image: 'fortune-cookie.png',
       category: categories[0]._id,
       price: 1.99,
-      quantity: 500,
+      quantity: 120,
     },
   ]);
 
