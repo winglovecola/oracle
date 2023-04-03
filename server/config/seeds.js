@@ -1,5 +1,11 @@
 const db = require('./connection');
-const { User, Product, Category, Tarot, ProphecyHistory} = require('../models');
+const {
+  User,
+  Product,
+  Category,
+  Tarot,
+  ProphecyHistory,
+} = require('../models');
 
 db.once('open', async () => {
   await Category.deleteMany();
@@ -13,7 +19,8 @@ db.once('open', async () => {
   const products = await Product.insertMany([
     {
       name: 'Cup Noodles',
-      description: 'Increase your luck and enjoy a yummy snack',
+      description:
+        'The oracle loves cup noodles, if you want more positive readings, feed the oracle more noodles.',
       image: 'cup-noodles.png',
       category: categories[0]._id,
       price: 3.99,
@@ -21,7 +28,8 @@ db.once('open', async () => {
     },
     {
       name: 'Chocolate',
-      description: 'Increase your luck and enjoy a yummy snack',
+      description:
+        'No one can say no to chocolate, if you want to be on the good side of the Oracle, feed it to the oracle.',
       image: 'chocolate.png',
       category: categories[0]._id,
       price: 5.99,
@@ -29,48 +37,48 @@ db.once('open', async () => {
     },
     {
       name: 'Bubble Tea',
-      description: 'Increase your luck and enjoy a yummy snack',
+      description: 'Increase your luck send the oracle a bubble tea',
       image: 'bubble-tea.png',
       category: categories[0]._id,
-      price: 5.99,
-      quantity: 500,
+      price: 6.99,
+      quantity: 300,
     },
     {
       name: 'Instant Noodles',
-      description: 'Increase your luck and enjoy a yummy snack',
+      description: 'Instant noodles are the oracle favorite',
       image: 'instant-noodles.png',
       category: categories[0]._id,
       price: 5.99,
       quantity: 500,
     },
     {
-      name: 'Potion',
-      description: 'Increase your luck and enjoy a yummy snack',
-      image: 'canned-coffee.jpg',
+      name: 'Coca Cola',
+      description: 'We all know the oracle loves Coca Cola',
+      image: 'coca-cola.png',
       category: categories[0]._id,
       price: 1.99,
-      quantity: 500,
+      quantity: 700,
     },
     {
-      name: 'Potion Red',
-      description: 'Increase your luck and enjoy a yummy snack',
-      image: 'canned-coffee.jpg',
+      name: 'Beer',
+      description: 'Oracle loves beer, send the oracle a beer',
+      image: 'beer.png',
       category: categories[0]._id,
-      price: 1.99,
-      quantity: 500,
+      price: 9.99,
+      quantity: 600,
     },
     {
-      name: 'Energy Bar',
-      description: 'Increase the limit of the fortune telling',
-      image: 'cookie-tin.jpg',
+      name: 'Pizza',
+      description: 'Who does not love pizza?',
+      image: 'pizza.png',
       category: categories[0]._id,
       price: 2.99,
-      quantity: 500,
+      quantity: 700,
     },
     {
       name: 'Fortune Cookie',
-      description: 'Increase your luck and enjoy a yummy snack',
-      image: 'canned-coffee.jpg',
+      description: 'Fortune cookie is the oracle favorite snack',
+      image: 'fortune-cookie.png',
       category: categories[0]._id,
       price: 1.99,
       quantity: 500,
@@ -78,7 +86,7 @@ db.once('open', async () => {
   ]);
 
   console.log('products seeded');
-/*
+  /*
   await ProphecyHistory.create({
     cards: 'ar01 ar02 ar03',
     cardPosition: 'R U R',
@@ -97,7 +105,6 @@ db.once('open', async () => {
   console.log("ProphecyHistory seeded");
 */
 
-  
   await User.deleteMany();
 
   await User.create({
@@ -129,8 +136,6 @@ db.once('open', async () => {
   });
 
   console.log('users seeded');
-
-
 
   await Tarot.deleteMany();
 
