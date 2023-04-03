@@ -60,7 +60,7 @@ function ProductItem(item) {
         <button
           className="rounded-full bg-purple-900 text-white px-5 py-2 hover:bg-indigo-700 font-bold uppercase text-sm"
           onClick={addToCart}>
-          Add to cart
+          Feed the Oracle
         </button>
       </div>
     </div>

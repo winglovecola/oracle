@@ -557,7 +557,7 @@ function FuntuneTelling() {
     // Default options are marked with *
 
 
-    const response = await fetch(`http://34.130.7.159/api/text-to-speech`, {
+    const response = await fetch(`https://goodgooddeal.ca/api/text-to-speech`, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json',
