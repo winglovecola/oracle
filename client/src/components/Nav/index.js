@@ -1,9 +1,68 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Auth from '../../utils/auth';
 import Cart from '../Cart';
 import { Link } from 'react-router-dom';
 
 function Nav() {
+
+
+  useEffect(() => {
+
+    const butInstall = document.getElementById('buttonInstall');
+    //hide the button first
+    //butInstall.classList.toggle('hidden', true);
+    
+    // Logic for installing the PWA
+    // TODO: Add an event handler to the `beforeinstallprompt` event
+    window.addEventListener('beforeinstallprompt', async (event) => {
+    
+        // Store the triggered events
+        window.deferredPrompt = event;
+    
+        // Remove the hidden class from the button.
+        //show install button if the app is not installed
+        butInstall.classList.toggle('hidden', false);
+    
+      console.log ('beforeinstallprompt');
+    });
+    
+    
+    // TODO: Implement a click event handler on the `butInstall` element
+    butInstall.addEventListener('click', async () => {
+      
+      const promptEvent = window.deferredPrompt;
+    
+      if (!promptEvent) {
+       return;
+      }
+    
+      
+      // Show prompt
+      promptEvent.prompt();
+    
+      // Reset the deferred prompt variable, it can only be used once.
+      window.deferredPrompt = null;
+      
+      butInstall.classList.toggle('hidden', true);
+    });
+    
+    // TODO: Add an handler for the `appinstalled` event
+    
+    
+    window.addEventListener('appinstalled', (event) => {
+        // Clear prompt
+        window.deferredPrompt = null;
+    
+        butInstall.classList.toggle('hidden', true);
+    }); 
+      
+    
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      butInstall.classList.toggle('hidden', true);
+    }
+
+  }, []);
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -72,6 +131,14 @@ function Nav() {
     } else {
       return (
         <ul className="flex flex-wrap gap-3">
+          <li className="">
+   
+            {/* Install */}
+            <div className="group flex relative">
+              <div class="installBtn" id="buttonInstall" role="button">Install!</div>
+            </div>
+      
+          </li>
           <li className="">
             <Link to="/">
               {/* Tarot */}
