@@ -68,6 +68,15 @@ function Nav() {
       return (
         <ul className="flex flex-wrap flex-row gap-3">
           <li className="">
+   
+          {/* Install */}
+          <div className="group flex relative">
+            <div className="installBtn" id="buttonInstall" role="button">Install</div>
+          </div>
+
+        </li>
+                  
+          <li className="">
             <Link to="/">
               <div className="group flex relative">
                 <img

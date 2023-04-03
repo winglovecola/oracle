@@ -288,6 +288,8 @@ function FuntuneTelling() {
 
   }
 
+
+  //PROPHECY BEGIN
   function meetOracle () {
     //document.getElementById('dungeon-div').style.animation = "";
     //document.getElementById('dungeon').style.animation = "";
