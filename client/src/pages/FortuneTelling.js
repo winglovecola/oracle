@@ -293,6 +293,17 @@ function FuntuneTelling() {
     //document.getElementById('dungeon').style.animation = "";
     auFootstep.pause();
 
+    //have to reset all these varaible to avoid error
+    questionNum = 1;
+    myQuestionType = '';
+    myQuestion = '';
+    myThreeNumber = [];
+    answerDivCopy = [];
+    tarotCardTellingStarted = false;
+
+
+
+
 
     document.getElementById('dungeon').style.animation = "";
     document.getElementById('dungeon-div').style.display = "none";

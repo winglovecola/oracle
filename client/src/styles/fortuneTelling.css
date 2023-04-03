@@ -111,7 +111,7 @@ body {
 #oracle-questions {
   display: none;
   position: absolute;
-  margin-top: 300px;
+  margin-top: 100px;
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -267,7 +267,8 @@ body {
 
 @media only screen and (max-width: 800px) {
   #oracle-questions {
-    margin-top: 150px;
+    margin-top: 100px;
+    overflow-x: scroll;
   }
   
   #oracle-prophecy {
