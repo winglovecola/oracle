@@ -9,7 +9,6 @@
   },
   "scripts": {
     "start": "node server --ignore client",
-    "heroku-prebuild": "npm cache clean --force",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
