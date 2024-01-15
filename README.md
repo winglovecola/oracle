@@ -17,7 +17,7 @@ Oracle is primarily built upon React as a singlular webpage application. It also
 
 ## Installation
 
-Oracle is deployed and functioning at https://oracle-online.herokuapp.com/
+Oracle is deployed and functioning at https://oracle-online-aa3863530ca8.herokuapp.com/
 
 Alternatively, you may download the contents of this repository, then save or unzip them into a single folder. Using Visual Studio Code, you can open that folder. Using the terminal, ensure the directory is in the root of the app folder. Then type "npm install" to install all the dependencies and libraries, which will take some time. Once everything is installed, type "npm run develop", the build will also take some time. Once completed, the application will eventually open a browser page on it's own or you can view the app on a browser at the url "http://localhost:3000/" by default, or the appropriate port you have designated.
 
@@ -41,7 +41,7 @@ Coding guidance provided by the University of Toronto - School of Continuing Stu
 
 ## Heroku
 
-Heroku Deployed Live Site: https://oracle-online.herokuapp.com/
+Heroku Deployed Live Site: https://oracle-online-aa3863530ca8.herokuapp.com/
 
 ## Questions
 
