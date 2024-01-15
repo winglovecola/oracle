@@ -634,22 +634,23 @@ function FuntuneTelling() {
     console.log(prompt);
 
     const result = await chatGptApi(prompt);
-    const resultText = result.choices[0].text;
+    const resultText = result.choices[0].message.content;
 
     //show prophecy on board
     setOracleProphecy (resultText);
     
     console.log(resultText);
-    const audioPath = await oracleSpeech(resultText);
 
+    let audioPath = "";
+    //audioPath = await oracleSpeech(resultText); //need to host on pm2 and nigix server
 
-
-    const oracleSpeechAudio = document.getElementById('au-oracle-speech');
-    oracleSpeechAudio.src = audioPath;
-    oracleSpeechAudio.load ();
-    oracleSpeechAudio.play ();
-
-    
+    if (audioPath !== "")
+    {
+      const oracleSpeechAudio = document.getElementById('au-oracle-speech');
+      oracleSpeechAudio.src = audioPath; 
+      oracleSpeechAudio.load ();
+      oracleSpeechAudio.play ();
+    }
   }
 
   

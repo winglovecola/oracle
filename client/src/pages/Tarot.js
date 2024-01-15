@@ -103,8 +103,8 @@ const Tarot = () => {
     console.log(prompt);
 
     // const result = await chatGptApi(prompt);
-    // console.log(result.choices[0].text);
-    // const audioPath = oracleSpeech(result.choices[0].text);
+    // console.log(result.choices[0].message.content);
+    // const audioPath = oracleSpeech(result.choices[0].message.content);
     // console.log(audioPath);
   }
 
