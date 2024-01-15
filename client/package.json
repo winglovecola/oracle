@@ -41,17 +41,9 @@
       "last 1 safari version"
     ]
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-private-property-in-object"
-    ]
-  },
+
   "devDependencies": {
-    "@babel/core": "^7.23.7",
+
     "@babel/plugin-syntax-jsx": "^7.23.3",
     "@babel/preset-env": "^7.23.8",
     "@babel/preset-react": "^7.23.3",
