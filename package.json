@@ -4,6 +4,9 @@
   "description": "",
   "homepage": "https://github.com/winglovecola/oracle",
   "main": "server/server.js",
+  "engines": {
+    "node": "16.18.0"
+  },
   "scripts": {
     "start": "node server --ignore client",
     "heroku-prebuild": "npm cache clean --force",
@@ -21,6 +24,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "npm": "^10.3.0",
     "react-table": "^7.8.0"
   }
 }
