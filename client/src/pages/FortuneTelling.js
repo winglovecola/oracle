@@ -575,7 +575,7 @@ function FuntuneTelling() {
       oracleSpeechAudio.load ();
       oracleSpeechAudio.play ();
     }
-
+  }
 
   // Get upright or reversed
   function getSide() {
