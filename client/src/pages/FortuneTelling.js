@@ -564,6 +564,8 @@ function FuntuneTelling() {
 
 
     let audioPath = "";
+
+    //MUST UNCOMMENT IF YOU WANT TO USE SPEECH MODE
     //audioPath = await oracleSpeech(resultText); //need to host on pm2 and nigix server
 
     if (audioPath !== "")
