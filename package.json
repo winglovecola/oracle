@@ -4,9 +4,6 @@
   "description": "",
   "homepage": "https://github.com/winglovecola/oracle",
   "main": "server/server.js",
-  "engines": {
-    "node": "16.18.0"
-  },
   "scripts": {
     "start": "node server --ignore client",
     "heroku-postbuild": "cd client && npm install && npm run build",
