@@ -1,14 +1,14 @@
 //chatGPT
 const keyObj = {
-  k1: 'sk-cw4aPposJn4PhyQ3IZWc',
-  k2: 'T3BlbkFJ0x7OpsC5KOzCnj8SA4jC',
+  k1: 'sk-GAV0cTqcgtcwzkRavUWMT3',
+  k2: 'BlbkFJ1zG4IOFdrqmQ7cecMMzj',
 };
 
 async function chatGptApi(search) {
   let chatGptApiUrl = 'https://api.openai.com/v1/chat/completions';
   let cak = keyObj.k1 + keyObj.k2;
   let fetchData = {
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4o',
     messages: [{
       "role": "user",
       "content": search
