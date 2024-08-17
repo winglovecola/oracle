@@ -141,20 +141,30 @@ body {
   margin-bottom: 30px;
 }
 
+pre {
+  display: block;
+  font-family: monospace;
+  white-space: pre;
+  margin: 1em 0;
+  white-space: pre-wrap;
+}
+
 #oracle-prophecy {
   display: block;
   padding: 10px;
   text-align: center;
   overflow-y: auto;
   font-size: 24px;
+  max-height: 800px;
+  text-align: left;
 }
 
 #tarot-div {
   display: none;
   position: absolute;
-  top: 35%;
+  top: 10px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%);
   width: 95%;
   min-width: 400px;
   max-width: 800px;

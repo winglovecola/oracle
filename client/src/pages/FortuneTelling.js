@@ -727,7 +727,7 @@ function FuntuneTelling() {
       </div>
 
       <div id="tarot-div">
-        <section className="flex grow justify-center items-center gap-5">
+        <section className="flex  justify-center items-center gap-5">
           <div>
             <h6>{card1[0]}</h6>
             <div className={card1[3]}>
@@ -762,7 +762,7 @@ function FuntuneTelling() {
             </div>
           </div>
         </section>
-        <section id="oracle-prophecy">{oracleProphecy}</section>
+        <section id="oracle-prophecy"><pre>{oracleProphecy}</pre></section>
       </div>
     </main>
   );
