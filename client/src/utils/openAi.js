@@ -1,20 +1,17 @@
 //chatGPT
-const keyObj = {
-  k1: 'sk-GAV0cTqcgtcwzkRavUWMT3',
-  k2: 'BlbkFJ1zG4IOFdrqmQ7cecMMzj',
-};
+
 
 async function chatGptApi(search) {
   let chatGptApiUrl = 'https://api.openai.com/v1/chat/completions';
-  let cak = keyObj.k1 + keyObj.k2;
+  let cak = process.env.AI_API_KEY;
   let fetchData = {
-    model: 'gpt-4o',
+    model: 'gpt-4o-mini',
     messages: [{
       "role": "user",
       "content": search
     }],
     temperature: 1,
-    max_tokens: 256,
+    max_tokens: 1000,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
