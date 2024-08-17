@@ -23,9 +23,9 @@ const imgMask = `${userImgPhotofolderPath}\\mask.png`;
 // userImgPhotoFilePath = path.join(__dirname, userImgPhotoFilePath);
 //console.log (userImgPhotoFilePath);
 
-//console.log ('KEY: ' + process.env.AI_API_KEY);
+//console.log ('KEY: ' + process.env.REACT_APP_AI_API_KEY);
 const configuration = new Configuration({
-  apiKey: process.env.AI_API_KEY,
+  apiKey: process.env.REACT_APP_AI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -71,7 +71,7 @@ async function createImage () {
 
 
 
-const API_KEY = process.env.AI_API_KEY;
+const API_KEY = process.env.REACT_APP_AI_API_KEY;
 const API_URL = 'https://api.openai.com/v1/images/edits';
 
 const editImage2 = async (imagePath, prompt, api_key) => {

@@ -19,7 +19,7 @@ async function chatGptApi(search) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + process.env.AI_API_KEY,
+      Authorization: 'Bearer ' + process.env.REACT_APP_AI_API_KEY,
     },
     body: JSON.stringify(fetchData),
   };
