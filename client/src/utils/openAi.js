@@ -3,7 +3,6 @@
 
 async function chatGptApi(search) {
   let chatGptApiUrl = 'https://api.openai.com/v1/chat/completions';
-  let cak = process.env.AI_API_KEY;
   let fetchData = {
     model: 'gpt-4o-mini',
     messages: [{
@@ -20,7 +19,7 @@ async function chatGptApi(search) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + cak,
+      Authorization: 'Bearer ' + process.env.AI_API_KEY,
     },
     body: JSON.stringify(fetchData),
   };
